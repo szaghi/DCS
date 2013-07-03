@@ -6,7 +6,7 @@ DCS is a Driven-Cavity Simulator code.
 
 Stefano Zaghi and Emilio Campana
 
-_CNR-INSEAN Marine Technology Research Institute, via di Vallerano 139, 00128 Rome, Italy_
+_[CNR-INSEAN](http://www.insean.cnr.it/) Marine Technology Research Institute, via di Vallerano 139, 00128 Rome, Italy_
 
 ## Goals
 
