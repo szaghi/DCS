@@ -1,10 +1,18 @@
 # DCS
 
-DCS is a Drive-Cavity Simulator code.
+DCS is a Driven-Cavity Simulator code.
+
+## Authors
+
+Stefano Zaghi and Emilio Campana
+
+_CNR-INSEAN Marine Technology Research Institute, via di Vallerano 139, 00128 Rome, Italy_
+
+## Goals
 
 To be completed.
 
-## Mathematical and Numerical Models
+### Mathematical and Numerical Models
 
 To be completed.
 
