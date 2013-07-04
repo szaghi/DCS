@@ -386,10 +386,10 @@ private
 !> Derived type containing conservative variables.
 !> @ingroup Data_Type_CavityDerivedType
 type, public:: Type_Cavity
-  real(R8P)::                            Re   = 1._R8P  !< Reynolds number.
-  real(R8P)::                            beta = 0.6_R8P !< Relaxation parameter.
-  type(Type_Mesh)::                      mesh           !< Mesh data.
-  type(Type_Conservative), allocatable:: cons(:,:)      !< Conservative variables [0,mesh%N,0:mesh%N].
+  real(R8P)::                            Re   = 500._R8P !< Reynolds number.
+  real(R8P)::                            beta = 0.6_R8P  !< Relaxation parameter.
+  type(Type_Mesh)::                      mesh            !< Mesh data.
+  type(Type_Conservative), allocatable:: cons(:,:)       !< Conservative variables [0,mesh%N,0:mesh%N].
   contains
     procedure, non_overridable:: initialize ! Procedure for initializing Type_Cavity.
     procedure, non_overridable:: finalize   ! Procedure for finalizing   Type_Cavity.
@@ -502,9 +502,10 @@ USE Data_Type_Conservative                                                      
 implicit none
 !> @ingroup DCSPrivateVarPar
 !> @{
-type(Type_Cavity):: cavity       !< Cavity data.
-real(R8P)::         rtol = 1.E-6 !< Residual tolerance.
-integer(I4P)::      nout = 1_I4P !< Console updating frequency.
+type(Type_Cavity):: cavity          !< Cavity data.
+real(R8P)::         rtol = 1.E-4    !< Residual tolerance.
+integer(I4P)::      nout = 1000_I4P !< Console updating frequency.
+character(3)::      oform = "tec"   !< Output file format: "tec"=> Tecplot Inc. , "gnu"=> gnuplot.
 !> @}
 !-----------------------------------------------------------------------------------------------------------------------------------
 
@@ -563,8 +564,17 @@ contains
   write(stdout,'(A)')' DCS'
   write(stdout,'(A)')' Driven-Cavity Simulator code'
   write(stdout,'(A)')' Usage:'
+  write(stdout,'(A)')' ./DCS -N number_of_cells [optionals parameters]'
   write(stdout,*)
-  write(stdout,'(A)')' Examples: '
+  write(stdout,'(A)')' Optional parameters:'
+  write(stdout,'(A)')' -Re Reynolds_number => default 500'
+  write(stdout,'(A)')' -beta over_relaxation_parameter => default 0.6'
+  write(stdout,'(A)')' -rtol residual_tollerance => default 10^-4'
+  write(stdout,'(A)')' -nout standard_output_update_frequency => default 1000 iterations'
+  write(stdout,'(A)')' -oform output_file_format => "tec" for Tecplot output or "gnu" for gnuplot one, default "tec"'
+  write(stdout,*)
+  write(stdout,'(A)')' Example: '
+  write(stdout,'(A)')' ./DCS -Re 9.d2 -beta 0.5d0 -N 256 -nout 10000 -rtol 1.d-6'
   write(stdout,*)
   return
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -579,14 +589,14 @@ contains
   integer(I4P)::   N         !< Number of grid cells in each direction.
   integer(I4P)::   Nca = 0   !< Number of command line arguments.
   integer(I4P)::   c         !< Counter for command line arguments.
-  character(5)::   ca_switch !< Switch identifier.
+  character(6)::   ca_switch !< Switch identifier.
   character(100):: sbuf      !< String buffer.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
-  write(stdout,'(A)')' Some information about the precision of runnig machine'
-  call IR_Print()
-  write(stdout,*)
+  Re = cavity%Re
+  beta = cavity%beta
+  N = cavity%mesh%N
   ! parsing command line arguments
   Nca = command_argument_count()
   if (Nca==0) then
@@ -615,6 +625,8 @@ contains
       case('-nout')
         call get_command_argument(c+1,sbuf) ; c = c + 1
         read(sbuf,*)nout
+      case('-oform')
+        call get_command_argument(c+1,oform) ; c = c + 1
       case default
         write(stderr,'(A)') ' Error: switch "'//adjustl(trim(ca_switch))//'" is unknown'
         call print_usage
@@ -622,12 +634,21 @@ contains
       endselect
     enddo
   endif
+  if (N==0_I4P) then
+    write(stderr,'(A)')' Error: the number of cells N must be passed as command line argument'
+    call print_usage
+    stop
+  endif
+  write(stdout,'(A)')' Some information about the precision of runnig machine'
+  call IR_Print()
+  write(stdout,*)
   write(stdout,'(A)')' Simulation parameters'
   write(stdout,'(A)')' Re='//trim(str(n=Re))
   write(stdout,'(A)')' beta='//trim(str(n=beta))
   write(stdout,'(A)')' N='//trim(str(n=N))
   write(stdout,'(A)')' rtol='//trim(str(n=rtol))
   write(stdout,'(A)')' nout='//trim(str(n=nout))
+  write(stdout,'(A)')' oform='//trim(oform)
   write(stdout,*)
   ! initializing cavity data
   call cavity%initialize(Re=Re,beta=beta,N=N)
@@ -682,16 +703,31 @@ contains
 
   !---------------------------------------------------------------------------------------------------------------------------------
   ! writing solution
-  open(unit=Get_Unit(u),file='DCS_out.dat')
-  write(u,'(A)')'VARIABLES="x" "y" "s" "v"'
-  write(u,'(A)')'ZONE T="Driven Cavity" I='//trim(str(n=cavity%mesh%N+1))//' J='//trim(str(n=cavity%mesh%N+1))
-  do j=0,cavity%mesh%N
-    do i=0,cavity%mesh%N
-      write(u,'(A)')trim(str(n=cavity%mesh%x(i)))//' '//trim(str(n=cavity%mesh%y(j)))//' '//&
-                    trim(str(n=cavity%cons(i,j)%s(2)))//' '//trim(str(n=cavity%cons(i,j)%v(2)))
+  select case(trim(oform))
+  case('tec')
+    ! tecplot format
+    open(unit=Get_Unit(u),file='DCS_out.tec')
+    write(u,'(A)')'VARIABLES="x" "y" "s" "v"'
+    write(u,'(A)')'ZONE T="Driven Cavity" I='//trim(str(n=cavity%mesh%N+1))//' J='//trim(str(n=cavity%mesh%N+1))
+    do j=0,cavity%mesh%N
+      do i=0,cavity%mesh%N
+        write(u,'(A)')trim(str(n=cavity%mesh%x(i)))//' '//trim(str(n=cavity%mesh%y(j)))//' '//&
+                      trim(str(n=cavity%cons(i,j)%s(2)))//' '//trim(str(n=cavity%cons(i,j)%v(2)))
+      enddo
     enddo
-  enddo
-  close(u)
+    close(u)
+  case('gnu')
+    ! gnuplot format
+    open(unit=Get_Unit(u),file='DCS_out.gnu')
+    do j=0,cavity%mesh%N
+      do i=0,cavity%mesh%N
+        write(u,'(A)')trim(str(n=cavity%mesh%x(i)))//' '//trim(str(n=cavity%mesh%y(j)))//' '//&
+                      trim(str(n=cavity%cons(i,j)%s(2)))//' '//trim(str(n=cavity%cons(i,j)%v(2)))
+      enddo
+      write(u,*)
+    enddo
+    close(u)
+  endselect
   ! finalizing cavity data
   call cavity%finalize
   return
