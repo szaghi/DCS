@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.4"/>
-<title>DCS: DCS</title>
+<title>DCS: File Members</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -44,10 +44,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>README</span></a></li>
       <li><a href="modules.html"><span>API</span></a></li>
-      <li><a href="files.html"><span>Source&#160;Files</span></a></li>
+      <li class="current"><a href="files.html"><span>Source&#160;Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -66,6 +66,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow3" class="tabs2">
+    <ul class="tablist">
+      <li><a href="globals.html"><span>All</span></a></li>
+      <li class="current"><a href="globals_func.html"><span>Functions/Subroutines</span></a></li>
+      <li><a href="globals_vars.html"><span>Variables</span></a></li>
+    </ul>
+  </div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -78,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('index.html','');});
+$(document).ready(function(){initNavTree('globals_func.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -95,31 +107,28 @@ $(document).ready(function(){initNavTree('index.html','');});
 </iframe>
 </div>
 
-<div class="header">
-  <div class="headertitle">
-<div class="title">DCS </div>  </div>
-</div><!--header-->
 <div class="contents">
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Stefano Zaghi </dd>
-<dd>
-Emilio Campana </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.0.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2013-07-01 </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License version 3.</dd></dl>
-<h1><a class="anchor" id="Introduction"></a>
-Introduction</h1>
-<p>DCS is an Open source program for simulating driven cavity problems.</p>
-<p>It is written in in standard (compliant) Fortran 2003.</p>
-<dl class="section note"><dt>Note</dt><dd><b>Compiling Instructions</b> <br/>
- DCS is shipped with a makefile for compiling the codes on Unix/GNU Linux architectures. Other OS are not supported. For more details see <a class="el" href="d9/d26/Compiling.html">Compiling Instructions</a>.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="dd/da0/todo.html#_todo000001">Todo:</a></b></dt><dd><b>DocImprove:</b> Improve the documentation</dd></dl>
-<h1><a class="anchor" id="Copyrights"></a>
-Copyrights</h1>
-<p>DCS is an open source project, it is distributed under the GPL v3. Anyone is interest to use, to develop or contribute to DCS is welcome.</p>
-<h1><a class="anchor" id="Source"></a>
-Source Code</h1>
-<p>It can be found at: <a href="https://github.com/szaghi/DCS">https://github.com/szaghi/DCS</a> </p>
-</div></div><!-- contents -->
+&#160;<ul>
+<li>dcs()
+: <a class="el" href="d5/d6b/group__DCSProgram.html#ga9091a19fb430303982875600d4de916f">DCS.f90</a>
+</li>
+<li>dcs_finalize()
+: <a class="el" href="d9/df5/group__DCSPrivateProcedure.html#gabd4123929030af8c1c87eb099c79d689">DCS.f90</a>
+</li>
+<li>dcs_initialize()
+: <a class="el" href="d9/df5/group__DCSPrivateProcedure.html#gadc060c1cdb347e033975479b1f02d95f">DCS.f90</a>
+</li>
+<li>dcs_simulate()
+: <a class="el" href="d9/df5/group__DCSPrivateProcedure.html#ga97ff3cd740b8cc9120e187a52ac7e446">DCS.f90</a>
+</li>
+<li>get_unit()
+: <a class="el" href="d9/df5/group__DCSPrivateProcedure.html#gad7c4c6143b7d7d85a16a06625763decf">DCS.f90</a>
+</li>
+<li>print_usage()
+: <a class="el" href="d9/df5/group__DCSPrivateProcedure.html#ga127c071654a9dbe30f1c552132cd2a0e">DCS.f90</a>
+</li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

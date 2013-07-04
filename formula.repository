@@ -1,0 +1,99 @@
+\form#0:$\frac{\partial }{{\partial t}}\int\limits_V {\overrightarrow U dV} + \oint\limits_{S(V)} {\overline{\overline F} \cdot \overrightarrow n dS} = \int\limits_V {\overrightarrow {{Q_V}} dV} + \oint\limits_{S(V)} {\overline{\overline {{Q_S}}} \cdot \overrightarrow n dS} $
+\form#1:$V$
+\form#2:$S(V)$
+\form#3:$\vec n$
+\form#4:$\overrightarrow U $
+\form#5:$\overline{\overline F}$
+\form#6:$\overrightarrow{Q_V}$
+\form#7:$\overline{\overline{Q_S}}$
+\form#8:$\overrightarrow U = \left[ {\begin{array}{*{20}{c}} \rho \\ {\rho \vec v}\\ {\rho E} \end{array}} \right]$
+\form#9:$\overline{\overline F} - \overline{\overline {{Q_S}}} = \left[ {\begin{array}{*{20}{c}} {\rho \vec v}\\ {\rho \vec v\vec v - \overline{\overline \sigma } }\\ {\rho E\vec v - \overline{\overline \sigma } \cdot \vec v - k\overrightarrow \nabla T} \end{array}} \right]$
+\form#10:$\overrightarrow {{Q_V}} = \left[ {\begin{array}{*{20}{c}} 0\\ {\rho \overrightarrow {{f_e}} }\\ {\rho \overrightarrow {{f_e}} \cdot \vec v + {q_h}} \end{array}} \right]$
+\form#11:$\rho$
+\form#12:$\vec v$
+\form#13:$\vec v \vec v$
+\form#14:$\vec u\vec v = \left[ {\begin{array}{*{20}{c}} {{u_1}{v_1}} & {{u_1}{v_2}} & {{u_1}{v_3}} \\ {{u_2}{v_1}} & {{u_2}{v_2}} & {{u_2}{v_3}} \\ {{u_3}{v_1}} & {{u_3}{v_2}} & {{u_3}{v_3}} \end{array}} \right]$
+\form#15:$E$
+\form#16:$T$
+\form#17:$\overline{\overline \sigma}$
+\form#18:$k$
+\form#19:$-k\overrightarrow \nabla T$
+\form#20:$\overrightarrow{{f_e}}$
+\form#21:$q_h$
+\form#22:$ \overline{\overline \sigma} = -p\overline{\overline I}+ \overline{\overline \tau}$
+\form#23:$p$
+\form#24:$\overline{\overline I}$
+\form#25:$\overline{\overline \tau}$
+\form#26:${\tau _{ij}} = \mu \left( {{\partial _i}{v_j} + {\partial _j}{v_i}} \right) + \lambda \left( {\overrightarrow \nabla \cdot \vec v} \right){\delta _{ij}}$
+\form#27:$\mu$
+\form#28:$\lambda = -\frac{2}{3}\mu$
+\form#29:$\delta_{ij}$
+\form#30:${\delta _{ij}} = \left\{ {\begin{array}{*{20}{c}} {0{\rm{,}}\;{\rm{if}}\;i \ne j}\\ {{\rm{1,}}\;{\rm{if}}\;i = j} \end{array}} \right.$
+\form#31:$\overline{\overline \tau } = 2\mu \frac{1}{2}\left( {\overrightarrow \nabla \vec v + \overrightarrow \nabla {{\vec v}^T}} \right) + \lambda \left( {\overrightarrow \nabla \cdot \vec v} \right)\overline{\overline I} $
+\form#32:$ \frac{1}{2}\left( {\overrightarrow \nabla \vec v + \overrightarrow \nabla {{\vec v}^T}} \right)$
+\form#33:$ p = \rho R T$
+\form#34:$R$
+\form#35:$\begin{array}{*{20}{c}}\gamma = \frac{c_p}{c_v} \\ R = c_p -c_v \\ c_p = \frac{\gamma R}{\gamma -1} \\ c_p = \frac{R}{\gamma -1} \end{array}$
+\form#36:$ E = c_v T + \frac{|\vec v|^2}{2} = \frac{p}{\rho(\gamma-1)} + \frac{|\vec v|^2}{2}$
+\form#37:$ a = \sqrt{\frac{\gamma p}{\rho}} $
+\form#38:$ H = c_p T + \frac{|\vec v|^2}{2} = \frac{\gamma p}{\rho(\gamma-1)} + \frac{|\vec v|^2}{2}= \frac{a^2}{\gamma-1} + \frac{|\vec v|^2}{2}$
+\form#39:$x'=\frac{x}{x_0}$
+\form#40:$x$
+\form#41:$x_0$
+\form#42:$ \begin{array}{l} \frac{{{\rho _0}L_0^3}}{{{t_0}}}\frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho 'dV'} + {\rho _0}{v_0}L_0^2\oint\limits_{S'(V')} {\rho '\overrightarrow {v'} \cdot \vec ndS'} = 0\\ \frac{{{\rho _0}{v_0}L_0^3}}{{{t_0}}}\frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho '\overrightarrow {v'} dV'} + {\rho _0}v_0^2L_0^2\oint\limits_{S'(V')} {\rho '\overrightarrow {v'} \overrightarrow {v'} \cdot \vec ndS'} + {p_0}L_0^2\oint\limits_{S'(V')} {p'\overline{\overline I} \cdot \vec ndS'} - {\tau _0}L_0^2\oint\limits_{S'(V')} {\overline{\overline {\tau '}} \cdot \vec ndS'} = {\rho _0}{f_0}L_0^3\int\limits_{V'} {\rho '\overrightarrow {{{f'}_e}} dV'} \\ \frac{{{\rho _0}{E_0}L_0^3}}{{{t_0}}}\frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho 'E'dV'} + {\rho _0}{E_0}{v_0}L_0^2\oint\limits_{S'(V')} {\rho 'E'\overrightarrow {v'} \cdot \vec ndS'} + {p_0}L_0^2\oint\limits_{S'(V')} {p'\overrightarrow {v'} \cdot \vec ndS'} - {\tau _0}{v_0}L_0^2\oint\limits_{S'(V')} {\left( {\overline{\overline {\tau '}} \cdot \overrightarrow {v'} } \right) \cdot \vec ndS'} + \\ -\frac{{{k_0}{T_0}L_0^2}}{{{L_0}}}\oint\limits_{S'(V')} {k'\overrightarrow {\nabla '} T' \cdot \vec ndS'} = {\rho _0}{f_0}{v_0}L_0^3\int\limits_{V'} {\rho '\overrightarrow {{{f'}_e}} \cdot \overrightarrow {v'} dV'} + {\rho _0}{q_0}L_0^3\int\limits_{V'} {\rho '{{q'}_h}dV'} \end{array} $
+\form#43:${\rho _0}{v_0}L_0^2$
+\form#44:${\rho _0}{v_0^2}L_0^2$
+\form#45:${\rho _0}{E_0}{v_0}L_0^2$
+\form#46:$ \begin{array}{l} \frac{{{L_0}}}{{{v_0}{t_0}}}\frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho 'dV'} + \oint\limits_{S'(V')} {\rho '\overrightarrow {v'} \cdot \vec ndS'} = 0\\ \frac{{{L_0}}}{{{v_0}{t_0}}}\frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho '\overrightarrow {v'} dV'} + \oint\limits_{S'(V')} {\rho '\overrightarrow {v'} \overrightarrow {v'} \cdot \vec ndS'} + \frac{{{p_0}}}{{{\rho _0}v_0^2}}\oint\limits_{S'(V')} {p'\overline{\overline I} \cdot \vec ndS'} - \frac{{{\tau _0}}}{{{\rho _0}v_0^2}}\oint\limits_{S'(V')} {\overline{\overline {\tau '}} \cdot \vec ndS'} = \frac{{{f_0}{L_0}}}{{v_0^2}}\int\limits_{V'} {\rho '\overrightarrow {{{f'}_e}} dV'} \\ \frac{{{L_0}}}{{{v_0}{t_0}}}\frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho 'E'dV'} + \oint\limits_{S'(V')} {\rho 'E'\overrightarrow {v'} \cdot \vec ndS'} + \frac{{{p_0}}}{{{\rho _0}{E_0}{v_0}}}\oint\limits_{S'(V')} {p'\overrightarrow {v'} \cdot \vec ndS'} - \frac{{{\tau _0}}}{{{\rho _0}{E_0}}}\oint\limits_{S'(V')} {\left( {\overline{\overline {\tau '}} \cdot \overrightarrow {v'} } \right) \cdot \vec ndS'} + \\ - \frac{{{k_0}{T_0}}}{{{\rho _0}{E_0}{v_0}{L_0}}}\oint\limits_{S'(V')} {k'\overrightarrow {\nabla '} T' \cdot \vec ndS'} = \frac{{{f_0}{L_0}}}{{{E_0}}}\int\limits_{V'} {\rho '\overrightarrow {{{f'}_e}} \cdot \overrightarrow {v'} dV'} + \frac{{{q_0}{L_0}}}{{{E_0}{v_0}}}\int\limits_{V'} {\rho '{{q'}_h}dV'} \end{array}$
+\form#47:$ \rm{St} = \frac{L_0}{v_0 t_0}$
+\form#48:$ \rm{Ru} = \frac{\rho_0 v_0^2}{p_0}$
+\form#49:$ \rm{Ma} = \frac{v_0}{a_0}$
+\form#50:$ \rm{Re} = \frac{\rho_0 v_0 L_0}{\mu_0}$
+\form#51:$ \rm{Fr} = \sqrt{\frac{v_0^2}{f_0 L_0}}$
+\form#52:$ \rm{Pr} = \frac{\mu_0 c_{p0}}{k_0}$
+\form#53:$ \rm{Ec} = \frac{v_0^2}{c_{p0}T_0}$
+\form#54:$ \begin{array}{l} {\rm{St}}\frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho 'dV'} + \oint\limits_{S'(V')} {\rho '\overrightarrow {v'} \cdot \vec ndS'} = 0\\ {\rm{St}}\frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho '\overrightarrow {v'} dV'} + \oint\limits_{S'(V')} {\rho '\overrightarrow {v'} \overrightarrow {v'} \cdot \vec ndS'} + \frac{1}{{{\rm{Ru}}}}\oint\limits_{S'(V')} {p'\overline{\overline I} \cdot \vec ndS'} - \frac{1}{{{\rm{Re}}}}\oint\limits_{S'(V')} {\overline{\overline {\tau '}} \cdot \vec ndS'} = \frac{1}{{{\rm{F}}{{\rm{r}}^2}}}\int\limits_{V'} {\rho '\overrightarrow {{{f'}_e}} dV'} \\ {\rm{St}}\frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho 'E'dV'} + \oint\limits_{S'(V')} {\rho 'E'\overrightarrow {v'} \cdot \vec ndS'} + \frac{{{\rm{Ec}}}}{{{\rm{Ru}}}}\oint\limits_{S'(V')} {p'\overrightarrow {v'} \cdot \vec ndS'} - \frac{{{\rm{Ec}}}}{{{\rm{Re}}}}\oint\limits_{S'(V')} {\left( {\overline{\overline {\tau '}} \cdot \overrightarrow {v'} } \right) \cdot \vec ndS'} + \\ - \frac{1}{{{\rm{PrRe}}}}\oint\limits_{S'(V')} {k'\overrightarrow {\nabla '} T' \cdot \vec ndS'} = \frac{{{\rm{Ec}}}}{{{\rm{F}}{{\rm{r}}^2}}}\int\limits_{V'} {\rho '\overrightarrow {{{f'}_e}} \cdot \overrightarrow {v'} dV'} + \frac{{{q_0}{L_0}}}{{{E_0}{v_0}}}\int\limits_{V'} {\rho '{{q'}_h}dV'} \end{array} $
+\form#55:$\rm{St} = 1$
+\form#56:$\rm{Ru} = 1 => \rm{Ma} = \frac{1}{\sqrt{\gamma}}$
+\form#57:$\rm{Ec} = 1$
+\form#58:$ t_0 = \frac{L_0}{v_0}$
+\form#59:$ p_0 = \rho_0 v_0^2 => a_0 = \sqrt{\gamma}v_0$
+\form#60:$ c_{p0}T_0 = v_0^2$
+\form#61:$ \begin{array}{l} \frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho 'dV'} + \oint\limits_{S'(V')} {\rho '\overrightarrow {v'} \cdot \vec ndS'} = 0\\ \frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho '\overrightarrow {v'} dV'} + \oint\limits_{S'(V')} {\left( {\rho '\overrightarrow {v'} \overrightarrow {v'} + p'\overline{\overline I} } \right) \cdot \vec ndS'} - \frac{1}{{{\rm{Re}}}}\oint\limits_{S'(V')} {\overline{\overline {\tau '}} \cdot \vec ndS'} = \frac{1}{{{\rm{F}}{{\rm{r}}^2}}}\int\limits_{V'} {\rho '\overrightarrow {{{f'}_e}} dV'} \\ \frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho 'E'dV'} + \oint\limits_{S'(V')} {\left( {\rho 'E' + p'} \right)\overrightarrow {v'} \cdot \vec ndS'} - \frac{{\rm{1}}}{{{\rm{Re}}}}\oint\limits_{S'(V')} {\left( {\overline{\overline {\tau '}} \cdot \overrightarrow {v'} } \right) \cdot \vec ndS'} - \frac{1}{{{\rm{PrRe}}}}\oint\limits_{S'(V')} {k'\overrightarrow {\nabla '} T' \cdot \vec ndS'} = \\ \frac{{\rm{1}}}{{{\rm{F}}{{\rm{r}}^2}}}\int\limits_{V'} {\rho '\overrightarrow {{{f'}_e}} \cdot \overrightarrow {v'} dV'} + \frac{{{q_0}{L_0}}}{{{E_0}{v_0}}}\int\limits_{V'} {\rho '{{q'}_h}dV'} \end{array} $
+\form#62:$L_0$
+\form#63:$v_0$
+\form#64:$\mu_0$
+\form#65:$ L_0 $
+\form#66:$ \rho_0 $
+\form#67:$ v_0 $
+\form#68:$ \mu_0 $
+\form#69:$ f_0 $
+\form#70:$ c_0 $
+\form#71:$ k_0 $
+\form#72:$ \mu_0 = \frac{\rho_0 v_0 L_0}{\rm{Re}}$
+\form#73:$ f_0 = \frac{v_0^2}{L_0 \rm{Fr}^2}$
+\form#74:$ k_0 = \frac{\mu_0 c_0}{\rm{Pr}}$
+\form#75:$ p_0 = \rho_0 v_0^2 $
+\form#76:$ a_0 = \sqrt{\gamma}v_0 $
+\form#77:$ T_0 = \frac{v_0^2}{c_0} $
+\form#78:$ E_0 = v_0^2 $
+\form#79:$ q_0 = \frac{v_0^3}{L_0} $
+\form#80:$D$
+\form#81:$N_b$
+\form#82:$D^b$
+\form#83:$N_i \times N_j \times N_k$
+\form#84:$D_{ijk}^b$
+\form#85:$\bigcup D_{ijk}^b = D^b$
+\form#86:$\frac{\partial }{{\partial t}}\int\limits_{{V_{ijk}}} {\overrightarrow U d{V_{ijk}}} + \sum\limits_{s = 1}^6 {\int\limits_{{S_s}\left( {{V_{ijk}}} \right)} {\overline{\overline F} \cdot \overrightarrow {{n_s}} d{S_s}} } = \int\limits_{{V_{ijk}}} {\overrightarrow {{Q_V}} d{V_{ijk}}} + \sum\limits_{s = 1}^6 {\int\limits_{{S_s}\left( {{V_{ijk}}} \right)} {\overline{\overline {{Q_S}}} \cdot \overrightarrow {{n_s}} d{S_s}} } $
+\form#87:$S_s$
+\form#88:$s^{th}$
+\form#89:$D_{ijk}$
+\form#90:$V_{ijk}$
+\form#91:$\begin{array}{l} \frac{\partial }{{\partial t}}\int\limits_{{V_{ijk}}} {\overrightarrow U d{V_{ijk}}} = R\left( {\overrightarrow U } \right)\\ R\left( {\overrightarrow U } \right) = - \sum\limits_{s = 1}^6 {\int\limits_{{S_s}\left( {{V_{ijk}}} \right)} {\overline{\overline F} \cdot \overrightarrow {{n_s}} d{S_s}} } + \int\limits_{{V_{ijk}}} {\overrightarrow {{Q_V}} d{V_{ijk}}} + \sum\limits_{s = 1}^6 {\int\limits_{{S_s}\left( {{V_{ijk}}} \right)} {\overline{\overline {{Q_S}}} \cdot \overrightarrow {{n_s}} d{S_s}} } \end{array}$
+\form#92:$R\left({\overrightarrow U }\right)$
+\form#93:$(\overline{\overline F} - \overline{\overline {{Q_S}}})_{conv} = \left[ {\begin{array}{*{20}{c}} {\rho \vec v}\\ {\rho \vec v\vec v + p\overline{\overline I } }\\ {(\rho E+p)\vec v } \end{array}} \right]$
+\form#94:${\left( {\overline{\overline F} - \overline{\overline {{Q_S}}} } \right)_{diff}} = \left[ {\begin{array}{*{20}{c}} 0\\ { - \overline{\overline \tau } }\\ { - \overline{\overline \tau } \cdot \vec v - k\overrightarrow \nabla T} \end{array}} \right]$
+\form#95:$[\frac{{\partial s}}{{\partial x}}=u,\frac{{\partial s}}{{\partial y}}=v]$
+\form#96:$dh=\frac{1}{N}$
+\form#97:$[10^{-307} , 10^{+307} - 1]$
+\form#98:$[-2^{31},+2^{31} - 1]$

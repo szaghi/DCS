@@ -1,0 +1,5 @@
+<map id="dcs_initialize" name="dcs_initialize">
+<area shape="rect" id="node3" href="$d7/d79/group__IR__PrecisionPublicProcedure.html#gaa53aa2c401d3c359a8664ad9ffb3d6b7" title="Subroutine for printing to the standard output the kind definition of reals and integers and the util..." alt="" coords="153,5,287,35"/>
+<area shape="rect" id="node7" href="$d9/df5/group__DCSPrivateProcedure.html#ga127c071654a9dbe30f1c552132cd2a0e" title="Subroutine for printing to stdout the correct usage of the code. " alt="" coords="176,59,264,88"/>
+<area shape="rect" id="node5" href="$d7/d79/group__IR__PrecisionPublicProcedure.html#gafa5b943c855757625cdb5d9530ec1844" title="Subroutine for initilizing module&#39;s variables that are not initialized into the definition specificat..." alt="" coords="337,5,463,35"/>
+</map>
