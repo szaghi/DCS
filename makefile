@@ -39,6 +39,15 @@ help:
 	@echo -e '\033[1;31m  NULi=yes(no) \033[0m\033[1m => on(off) nullify i direction (1D or 2D) (default $(NULi))\033[0m'
 	@echo -e '\033[1;31m  NULj=yes(no) \033[0m\033[1m => on(off) nullify j direction (1D or 2D) (default $(NULj))\033[0m'
 	@echo -e '\033[1;31m  NULk=yes(no) \033[0m\033[1m => on(off) nullify k direction (1D or 2D) (default $(NULk))\033[0m'
+	@echo
+	@echo -e '\033[1;31m Provided Rules: default=DCS\033[0m\033[1m => compile the code\033[0m'
+	@echo -e '\033[1;31m  cleanobj     =>\033[0m\033[1m cleaning compiled object\033[0m'
+	@echo -e '\033[1;31m  cleanmod     =>\033[0m\033[1m cleaning .mod files\033[0m'
+	@echo -e '\033[1;31m  cleanmsg     =>\033[0m\033[1m cleaning make-log massage files\033[0m'
+	@echo -e '\033[1;31m  clean        =>\033[0m\033[1m running cleanobj, cleanmod and cleanmsg\033[0m'
+	@echo -e '\033[1;31m  cleanall     =>\033[0m\033[1m running clean and cleanexe\033[0m'
+	@echo -e '\033[1;31m  tar          =>\033[0m\033[1m creating a tar archive of the project\033[0m'
+	@echo -e '\033[1;31m  doc          =>\033[0m\033[1m building the documentation\033[0m'
 #----------------------------------------------------------------------------------------------------------------------------------
 
 #----------------------------------------------------------------------------------------------------------------------------------
@@ -185,6 +194,20 @@ clean: cleanobj cleanmod cleanmsg
 
 .PHONY : cleanall
 cleanall: clean cleanexe
+
+.PHONY : tar
+tar: cleanall
+	@echo -e "\033[1;31m Creating tar archive of the code \033[0m" | tee make.log
+	@rm -f Driven_Cavity
+	@mkdir -p Driven_Cavity
+	@cp -rL src makefile Driven_Cavity/
+	@tar czf Driven_Cavity.tgz Driven_Cavity
+	@rm -rf Driven_Cavity
+
+.PHONY : doc
+doc:
+	@echo -e "\033[1;31m Building documentation\033[0m" | tee make.log
+	@doxygen .doxygenconfig
 #-----------------------------------------------------------------------------------------------------------------------------------
 
 #-----------------------------------------------------------------------------------------------------------------------------------
@@ -197,7 +220,12 @@ $(DEXE)DCS : PRINTINFO $(MKDIRS) $(DOBJ)dcs.o
 	@echo $(LITEXT) | tee -a make.log
 	@$(FC) $(OPTSL) $(DOBJ)*.o $(LIBS) -o $@ 1>> diagnostic_messages 2>> error_messages
 
-$(DOBJ)dcs.o : DCS.f90
+$(DOBJ)ir_precision.o : IR_Precision.f90
+	@echo $(COTEXT) | tee -a make.log
+	@$(FC) $(OPTSC) $< -o $@ 1>> diagnostic_messages 2>> error_messages
+
+$(DOBJ)dcs.o : DCS.f90 \
+	$(DOBJ)ir_precision.o
 	@echo $(COTEXT) | tee -a make.log
 	@$(FC) $(OPTSC) $< -o $@ 1>> diagnostic_messages 2>> error_messages
 #-----------------------------------------------------------------------------------------------------------------------------------

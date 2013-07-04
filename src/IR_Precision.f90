@@ -1,3 +1,40 @@
+!> @ingroup Library
+!> @{
+!> @defgroup IR_PrecisionLibrary IR_Precision
+!> Portable kind-parameters module
+!> @}
+
+!> @ingroup Interface
+!> @{
+!> @defgroup IR_PrecisionInterface IR_Precision
+!> Portable kind-parameters module
+!> @}
+
+!> @ingroup GlobalVarPar
+!> @{
+!> @defgroup IR_PrecisionGlobalVarPar IR_Precision
+!> Portable kind-parameters module
+!> @}
+
+!> @ingroup PublicProcedure
+!> @{
+!> @defgroup IR_PrecisionPublicProcedure IR_Precision
+!> Portable kind-parameters module
+!> @}
+
+!> @ingroup PrivateProcedure
+!> @{
+!> @defgroup IR_PrecisionPrivateProcedure IR_Precision
+!> Portable kind-parameters module
+!> @}
+
+!> @brief     Module IR_Precision makes available some portable kind-parameters and some useful procedures to deal with them.
+!> @details   It also provides variables that contain the minimum and maximum representable values, smallest real values and
+!>            smallest representable differences by the running calculator.
+!>
+!>            Finally the module provides procedures to convert a string to number and vice versa, a function to check the endianism
+!>            of the running calculator and a procedure to print all the aboves values.
+!> @ingroup IR_PrecisionLibrary
 module IR_Precision
 !-----------------------------------------------------------------------------------------------------------------------------------
 USE, intrinsic:: ISO_FORTRAN_ENV, only: stdout => OUTPUT_UNIT, stderr => ERROR_UNIT ! Standard output/error logical units.
@@ -15,42 +52,66 @@ public:: IR_Print
 !-----------------------------------------------------------------------------------------------------------------------------------
 
 !-----------------------------------------------------------------------------------------------------------------------------------
-integer, parameter::       R8P=selected_real_kind(15,307) ! 15  digits, range \f$[10^{-307} , 10^{+307}  - 1]\f$; 64 bits.
-integer, parameter::       I4P=selected_int_kind(9) ! Range \f$[-2^{31},+2^{31} - 1]\f$, 10 digits plus sign; 32 bits.
-character(10), parameter:: FR8P='(E23.15E3)' ! Output format for kind=R8P variable.
-integer, parameter::       DR8P=23 ! Number of digits of output format FR8P.
-character(5), parameter::  FI4P='(I11)' ! Output format for kind=I4P variable.
-character(8), parameter::  FI4PZP='(I11.10)' ! Output format with zero prefixing for kind=I4P variable.
-integer, parameter::       DI4P=11 ! Number of digits of output format I4P.
-real(R8P), parameter::     MinR8P=-huge(1._R8P ),MaxR8P=huge(1._R8P ) ! Min and max values of kind=R8P variable.
-integer(I4P):: BIR8P,      BYR8P ! Number of bits/bytes of kind=R8P variable.
-real(R8P), parameter::     smallR8P=tiny(1._R8P ) ! Smallest representable value of kind=R8P variable.
-integer(I4P), parameter::  MinI4P=-huge(1_I4P), MaxI4P = huge(1_I4P) ! Min and max values of kind=I4P variable.
-integer(I4P), parameter::  BII4P=bit_size(MaxI4P), BYI4P = bit_size(MaxI4P)/8_I4P ! Number of bits/bytes of kind=I4P variable.
-real(R8P), parameter::     ZeroR8=nearest(1._R8P, 1._R8P)-nearest(1._R8P,-1._R8P) ! Smallest representable difference of kind=R8P.
+!> @ingroup IR_PrecisionGlobalVarPar
+!> @{
+integer, parameter::       R8P=selected_real_kind(15,307) !< 15  digits, range \f$[10^{-307} , 10^{+307}  - 1]\f$; 64 bits.
+integer, parameter::       I4P=selected_int_kind(9) !< Range \f$[-2^{31},+2^{31} - 1]\f$, 10 digits plus sign; 32 bits.
+character(10), parameter:: FR8P='(E23.15E3)' !< Output format for kind=R8P variable.
+integer, parameter::       DR8P=23 !< Number of digits of output format FR8P.
+character(5), parameter::  FI4P='(I11)' !< Output format for kind=I4P variable.
+character(8), parameter::  FI4PZP='(I11.10)' !< Output format with zero prefixing for kind=I4P variable.
+integer, parameter::       DI4P=11 !< Number of digits of output format I4P.
+real(R8P), parameter::     MinR8P=-huge(1._R8P ),MaxR8P=huge(1._R8P ) !< Min and max values of kind=R8P variable.
+integer(I4P):: BIR8P,      BYR8P !< Number of bits/bytes of kind=R8P variable.
+real(R8P), parameter::     smallR8P=tiny(1._R8P ) !< Smallest representable value of kind=R8P variable.
+integer(I4P), parameter::  MinI4P=-huge(1_I4P), MaxI4P = huge(1_I4P) !< Min and max values of kind=I4P variable.
+integer(I4P), parameter::  BII4P=bit_size(MaxI4P), BYI4P = bit_size(MaxI4P)/8_I4P !< Number of bits/bytes of kind=I4P variable.
+real(R8P), parameter::     ZeroR8=nearest(1._R8P, 1._R8P)-nearest(1._R8P,-1._R8P) !< Smallest representable difference of kind=R8P.
+!> @}
 !-----------------------------------------------------------------------------------------------------------------------------------
 
 !-----------------------------------------------------------------------------------------------------------------------------------
+!> @brief Overloading of the intrinsic "bit_size" function for computing the number of bits of (also) real variables;
+!> number,       intent(\b IN)::  <b>\em n</b> input number;
+!> integer(I4P), intent(\b OUT):: <b>\em bits</b> output number of bits of input number.
+!> @ingroup IR_PrecisionInterface
 interface bit_size
   module procedure bit_size_R8P
 endinterface
+!> @brief Function for converting number, real and integer, to string (number to string type casting);
+!> number,  intent(\b IN)::           <b>\em n</b> input number;
+!> string,  intent(\b OUT)::          <b>\em str</b> output string.
+!> @ingroup IR_PrecisionInterface
 interface str
   module procedure strf_R8P,str_R8P,strf_I4P,str_I4P
 endinterface
+!> @brief Function for converting number, integer, to string, prefixing with the right number of zeros (number to string type
+!>        casting with zero padding);
+!> number,  intent(\b IN), optional:: <b>\em no_zpad</b> number of padding zeros;
+!> number,  intent(\b IN)::           <b>\em n  </b> input number;
+!> string,  intent(\b OUT)::          <b>\em str</b> output string.
+!> @ingroup IR_PrecisionInterface
 interface strz
   module procedure strz_I4P
 endinterface
+!> @brief Function for converting string to number, real or initeger, (string to number type casting);
+!> string,  intent(\b IN)::  <b>\em str</b> input string;
+!> number,  intent(\b OUT):: <b>\em n  </b> output number.
+!> @ingroup IR_PrecisionInterface
 interface cton
   module procedure ctor_R8P,ctoi_I4P
 endinterface
 !-----------------------------------------------------------------------------------------------------------------------------------
 contains
+  !> @ingroup IR_PrecisionPrivateProcedure
+  !> @{
+  !> @brief Function for computing the number of bits of a real variable.
   elemental function bit_size_R8P(i) result(bits)
   !---------------------------------------------------------------------------------------------------------------------------------
   implicit none
-  real(R8P), intent(IN):: i       ! Real variable of which number of bits must be computed.
-  integer(I4P)::          bits    ! Number of bits of i.
-  integer(I4P)::          mold(1) ! "Molding" dummy variable for bits counting.
+  real(R8P), intent(IN):: i       !< Real variable of which number of bits must be computed.
+  integer(I4P)::          bits    !< Number of bits of i.
+  integer(I4P)::          mold(1) !< "Molding" dummy variable for bits counting.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -59,12 +120,13 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction bit_size_R8P
 
+  !> @brief Function for converting real to string. This function achieves casting of real to string.
   elemental function strf_R8P(fm,n) result(str)
   !---------------------------------------------------------------------------------------------------------------------------------
   implicit none
-  character(*), intent(IN):: fm  ! Format different from the standard for the kind.
-  real(R8P),    intent(IN):: n   ! Real to be converted.
-  character(DR8P)::          str ! Returned string containing input number.
+  character(*), intent(IN):: fm  !< Format different from the standard for the kind.
+  real(R8P),    intent(IN):: n   !< Real to be converted.
+  character(DR8P)::          str !< Returned string containing input number.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -73,12 +135,13 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction strf_R8P
 
+  !> @brief Function for converting integer to string. This function achieves casting of integer to string.
   elemental function strf_I4P(fm,n) result(str)
   !---------------------------------------------------------------------------------------------------------------------------------
   implicit none
-  character(*), intent(IN):: fm  ! Format different from the standard for the kind.
-  integer(I4P), intent(IN):: n   ! Integer to be converted.
-  character(DI4P)::          str ! Returned string containing input number.
+  character(*), intent(IN):: fm  !< Format different from the standard for the kind.
+  integer(I4P), intent(IN):: n   !< Integer to be converted.
+  character(DI4P)::          str !< Returned string containing input number.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -87,12 +150,13 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction strf_I4P
 
+  !> @brief Function for converting real to string. This function achieves casting of real to string.
   elemental function str_R8P(no_sign,n) result(str)
   !---------------------------------------------------------------------------------------------------------------------------------
   implicit none
-  logical,      intent(IN), optional:: no_sign ! Flag for leaving out the sign.
-  real(R8P),    intent(IN)::           n       ! Real to be converted.
-  character(DR8P)::                    str     ! Returned string containing input number.
+  logical,      intent(IN), optional:: no_sign !< Flag for leaving out the sign.
+  real(R8P),    intent(IN)::           n       !< Real to be converted.
+  character(DR8P)::                    str     !< Returned string containing input number.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -103,12 +167,13 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction str_R8P
 
+  !> @brief Function for converting integer to string. This function achieves casting of integer to string.
   elemental function str_I4P(no_sign,n) result(str)
   !---------------------------------------------------------------------------------------------------------------------------------
   implicit none
-  logical,      intent(IN), optional:: no_sign ! Flag for leaving out the sign.
-  integer(I4P), intent(IN)::           n       ! Integer to be converted.
-  character(DI4P)::                    str     ! Returned string containing input number plus padding zeros.
+  logical,      intent(IN), optional:: no_sign !< Flag for leaving out the sign.
+  integer(I4P), intent(IN)::           n       !< Integer to be converted.
+  character(DI4P)::                    str     !< Returned string containing input number plus padding zeros.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -120,12 +185,13 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction str_I4P
 
+  !> @brief Function for converting integer to string. This function achieves casting of integer to string.
   elemental function strz_I4P(nz_pad,n) result(str)
   !---------------------------------------------------------------------------------------------------------------------------------
   implicit none
-  integer(I4P), intent(IN), optional:: nz_pad ! Number of zeros padding.
-  integer(I4P), intent(IN)::           n      ! Integer to be converted.
-  character(DI4P)::                    str    ! Returned string containing input number plus padding zeros.
+  integer(I4P), intent(IN), optional:: nz_pad !< Number of zeros padding.
+  integer(I4P), intent(IN)::           n      !< Integer to be converted.
+  character(DI4P)::                    str    !< Returned string containing input number plus padding zeros.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -136,13 +202,14 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction strz_I4P
 
+  !> @brief Function for converting string to real. This function achieves casting of string to real.
   function ctor_R8P(str,knd) result(n)
   !---------------------------------------------------------------------------------------------------------------------------------
   implicit none
-  character(*), intent(IN):: str ! String containing input number.
-  real(R8P),    intent(IN):: knd ! Number kind.
-  real(R8P)::                n   ! Number returned.
-  integer(I4P)::             err ! Error trapping flag: 0 no errors, >0 error occurs.
+  character(*), intent(IN):: str !< String containing input number.
+  real(R8P),    intent(IN):: knd !< Number kind.
+  real(R8P)::                n   !< Number returned.
+  integer(I4P)::             err !< Error trapping flag: 0 no errors, >0 error occurs.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -156,13 +223,14 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction ctor_R8P
 
+  !> @brief Function for converting string to integer. This function achieves casting of string to integer.
   function ctoi_I4P(str,knd) result(n)
   !---------------------------------------------------------------------------------------------------------------------------------
   implicit none
-  character(*), intent(IN):: str ! String containing input number.
-  integer(I4P), intent(IN):: knd ! Number kind.
-  integer(I4P)::             n   ! Number returned.
-  integer(I4P)::             err ! Error trapping flag: 0 no errors, >0 error occurs.
+  character(*), intent(IN):: str !< String containing input number.
+  integer(I4P), intent(IN):: knd !< Number kind.
+  integer(I4P)::             n   !< Number returned.
+  integer(I4P)::             err !< Error trapping flag: 0 no errors, >0 error occurs.
   !---------------------------------------------------------------------------------------------------------------------------------
 
   !---------------------------------------------------------------------------------------------------------------------------------
@@ -175,7 +243,11 @@ contains
   return
   !---------------------------------------------------------------------------------------------------------------------------------
   endfunction ctoi_I4P
+  !> @}
 
+  !> @ingroup IR_PrecisionPublicProcedure
+  !> @{
+  !> Subroutine for initilizing module's variables that are not initialized into the definition specification.
   subroutine IR_init()
   !---------------------------------------------------------------------------------------------------------------------------------
   implicit none
@@ -187,6 +259,7 @@ contains
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine IR_init
 
+  !>Subroutine for printing to the standard output the kind definition of reals and integers and the utility variables.
   subroutine IR_Print()
   !---------------------------------------------------------------------------------------------------------------------------------
   implicit none
@@ -210,4 +283,5 @@ contains
   write(stdout,'(A,'//FR8P// ')') ' ZeroR8  "',ZeroR8
   !---------------------------------------------------------------------------------------------------------------------------------
   endsubroutine IR_Print
+  !> @}
 endmodule IR_Precision

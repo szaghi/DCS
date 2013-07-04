@@ -1,0 +1,379 @@
+/**
+@mainpage DCS
+
+@author    Stefano Zaghi
+@author    Emilio Campana
+@version   0.0.1
+@date      2013-07-01
+@copyright GNU Public License version 3.
+
+@section Introduction
+
+DCS is an Open source program for simulating driven cavity problems.
+
+It is written in in standard (compliant) Fortran 2003.
+
+@note
+<b>Compiling Instructions</b> \n
+DCS is shipped with a makefile for compiling the codes on Unix/GNU Linux architectures. Other OS are not supported. For more details see \ref Compiling "Compiling Instructions".
+
+@todo \b DocImprove: Improve the documentation
+
+@section Copyrights
+
+DCS is an open source project, it is distributed under the GPL v3. Anyone is interest to use, to develop or contribute to DCS is welcome.
+
+@section Source Source Code
+
+It can be found at: https://github.com/szaghi/DCS
+
+@page Equations Governing Equations
+
+Description of the main mathematical models
+
+@section conseq Conservation Laws
+
+The turbulent motion of compressible viscous fluid is described by a system of equations, that read, in integral, dimensional form:
+
+\f$\frac{\partial }{{\partial t}}\int\limits_V {\overrightarrow U dV}  + \oint\limits_{S(V)} {\overline{\overline F}  \cdot \overrightarrow n dS}  = \int\limits_V {\overrightarrow {{Q_V}} dV}  + \oint\limits_{S(V)} {\overline{\overline {{Q_S}}} \cdot \overrightarrow n dS} \f$ \n
+\f$V\f$ being the control volume, \f$S(V)\f$ its boundary, \f$\vec n\f$ the outward unit normal of \f$S(V)\f$ and where \f$\overrightarrow U \f$ is the vector of conservative variables, \f$\overline{\overline F}\f$ is the conservative fluxes tensor, \f$\overrightarrow{Q_V}\f$ is vector of volume source terms and \f$\overline{\overline{Q_S}}\f$ is the tensor of surface source terms.
+
+For fluid subjected to external forces and heat sources the above vectors and tensors could be written as:
+
+\f$\overrightarrow U  = \left[ {\begin{array}{*{20}{c}} \rho \\ {\rho \vec v}\\ {\rho E} \end{array}} \right]\f$ \ref data_type_conservative::type_conservative "see definition of conservative derived type".
+
+
+\f$\overline{\overline F}  - \overline{\overline {{Q_S}}}  = \left[ {\begin{array}{*{20}{c}} {\rho \vec v}\\ {\rho \vec v\vec v - \overline{\overline \sigma } }\\ {\rho E\vec v - \overline{\overline \sigma }  \cdot \vec v - k\overrightarrow \nabla  T} \end{array}} \right]\f$
+
+\f$\overrightarrow {{Q_V}}  = \left[ {\begin{array}{*{20}{c}} 0\\ {\rho \overrightarrow {{f_e}} }\\ {\rho \overrightarrow {{f_e}} \cdot \vec v + {q_h}} \end{array}} \right]\f$ \n
+where:
+
+ - \f$\rho\f$ is the density;
+ - \f$\vec v\f$ is the velocity vector;
+ - \f$\vec v \vec v\f$ is the dyadic product of velocity vector defined as
+    \f$\vec u\vec v = \left[ {\begin{array}{*{20}{c}}
+      {{u_1}{v_1}} & {{u_1}{v_2}} & {{u_1}{v_3}}  \\ {{u_2}{v_1}} & {{u_2}{v_2}} & {{u_2}{v_3}}  \\ {{u_3}{v_1}} & {{u_3}{v_2}} & {{u_3}{v_3}}
+    \end{array}} \right]\f$
+ - \f$E\f$ is the specific, total energy;
+ - \f$T\f$ is the absolute temperature;
+ - \f$\overline{\overline \sigma}\f$ is the total internal stress tensor;
+ - \f$k\f$ is the thermal conductivity coefficient,  \f$-k\overrightarrow \nabla  T\f$ being the Fourier's law of heat conduction; the molecular diffusion and the radiative heat transfer have been neglected;
+ - \f$\overrightarrow{{f_e}}\f$ is the external specific volume forces vector;
+ - \f$q_h\f$ is heat sources other than conduction.
+
+The total internal stress could be written as (constitutive law):
+
+\f$ \overline{\overline \sigma} = -p\overline{\overline I}+ \overline{\overline \tau}\f$ \n
+where:
+ - \f$p\f$ is the static, isotropic pressure (\f$\overline{\overline I}\f$ is the identity tensor);
+ - \f$\overline{\overline \tau}\f$ is the viscous shear stress tensor.
+
+The viscous shear stress tensor, in general case, is defined as:
+
+\f${\tau _{ij}} = \mu \left( {{\partial _i}{v_j} + {\partial _j}{v_i}} \right) + \lambda \left( {\overrightarrow \nabla   \cdot \vec v} \right){\delta _{ij}}\f$ \n
+where:
+ - \f$\mu\f$ is the dynamic viscosity of the fluid;
+ - the second viscosity is defined as \f$\lambda = -\frac{2}{3}\mu\f$ for a Newtonian fluid in local thermodynamic equilibrium (except very high temperature or pressure ranges); this is the Stokes hypothesis;
+ - \f$\delta_{ij}\f$ is the Kronecker delta \f${\delta _{ij}} = \left\{ {\begin{array}{*{20}{c}} {0{\rm{,}}\;{\rm{if}}\;i \ne j}\\ {{\rm{1,}}\;{\rm{if}}\;i = j} \end{array}} \right.\f$.
+
+In tensorial form the shear stress tensor could be written as:
+
+\f$\overline{\overline \tau }  = 2\mu \frac{1}{2}\left( {\overrightarrow \nabla  \vec v + \overrightarrow \nabla  {{\vec v}^T}} \right) + \lambda \left( {\overrightarrow \nabla   \cdot \vec v} \right)\overline{\overline I} \f$ \n
+where \f$ \frac{1}{2}\left( {\overrightarrow \nabla  \vec v + \overrightarrow \nabla  {{\vec v}^T}} \right)\f$ is the symmetric part of the velocity vector gradient.
+
+The above system of equation must be completed by the constitutive equation of state. For a perfect gas, i.e. thermally and
+calorically perfect gas, the equation of state is:
+
+\f$ p = \rho R T\f$ \n
+where \f$R\f$ is the gas constant. This constant is related to the specific heats at constant volume and constant pressure (and their ratio):
+
+\f$\begin{array}{*{20}{c}}\gamma = \frac{c_p}{c_v} \\ R = c_p -c_v  \\ c_p = \frac{\gamma R}{\gamma -1} \\ c_p = \frac{R}{\gamma -1} \end{array}\f$
+
+The other equations of state are:
+
+ - \f$ E = c_v T + \frac{|\vec v|^2}{2} = \frac{p}{\rho(\gamma-1)} + \frac{|\vec v|^2}{2}\f$ is the total specific energy definition;
+ - \f$ a = \sqrt{\frac{\gamma p}{\rho}} \f$ is the speed of sound (acoustic velocity);
+ - \f$ H = c_p T + \frac{|\vec v|^2}{2} = \frac{\gamma p}{\rho(\gamma-1)} + \frac{|\vec v|^2}{2}= \frac{a^2}{\gamma-1} + \frac{|\vec v|^2}{2}\f$ is the total specific enthalpy definition.
+
+@subsection adim Non-Dimensional Form
+
+In order to derive the non-dimensional form let us introduce non-dimensional quantities \f$x'=\frac{x}{x_0}\f$ being \f$x\f$ dimensional quantity and \f$x_0\f$ an arbitrary reference value. With this nomenclature using a dimensional analysis the above equations could be written as:
+
+\f$ \begin{array}{l} \frac{{{\rho _0}L_0^3}}{{{t_0}}}\frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho 'dV'}  + {\rho _0}{v_0}L_0^2\oint\limits_{S'(V')} {\rho '\overrightarrow {v'}  \cdot \vec ndS'}  = 0\\ \frac{{{\rho _0}{v_0}L_0^3}}{{{t_0}}}\frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho '\overrightarrow {v'} dV'}  + {\rho _0}v_0^2L_0^2\oint\limits_{S'(V')} {\rho '\overrightarrow {v'} \overrightarrow {v'}  \cdot \vec ndS'}  + {p_0}L_0^2\oint\limits_{S'(V')} {p'\overline{\overline I}  \cdot \vec ndS'}  - {\tau _0}L_0^2\oint\limits_{S'(V')} {\overline{\overline {\tau '}}  \cdot \vec ndS'}  = {\rho _0}{f_0}L_0^3\int\limits_{V'} {\rho '\overrightarrow {{{f'}_e}} dV'} \\ \frac{{{\rho _0}{E_0}L_0^3}}{{{t_0}}}\frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho 'E'dV'}  + {\rho _0}{E_0}{v_0}L_0^2\oint\limits_{S'(V')} {\rho 'E'\overrightarrow {v'}  \cdot \vec ndS'}  + {p_0}L_0^2\oint\limits_{S'(V')} {p'\overrightarrow {v'}  \cdot \vec ndS'}  - {\tau _0}{v_0}L_0^2\oint\limits_{S'(V')} {\left( {\overline{\overline {\tau '}}  \cdot \overrightarrow {v'} } \right) \cdot \vec ndS'}  + \\ -\frac{{{k_0}{T_0}L_0^2}}{{{L_0}}}\oint\limits_{S'(V')} {k'\overrightarrow {\nabla '} T' \cdot \vec ndS'}  = {\rho _0}{f_0}{v_0}L_0^3\int\limits_{V'} {\rho '\overrightarrow {{{f'}_e}}  \cdot \overrightarrow {v'} dV'}  + {\rho _0}{q_0}L_0^3\int\limits_{V'} {\rho '{{q'}_h}dV'} \end{array} \f$
+
+In order to make non-dimensional the above system divide for \f${\rho _0}{v_0}L_0^2\f$, \f${\rho _0}{v_0^2}L_0^2\f$ and \f${\rho _0}{E_0}{v_0}L_0^2\f$ the conservation equation of mass, momentum and energy respectively, obtaining:
+
+\f$ \begin{array}{l} \frac{{{L_0}}}{{{v_0}{t_0}}}\frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho 'dV'}  + \oint\limits_{S'(V')} {\rho '\overrightarrow {v'}  \cdot \vec ndS'}  = 0\\ \frac{{{L_0}}}{{{v_0}{t_0}}}\frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho '\overrightarrow {v'} dV'}  + \oint\limits_{S'(V')} {\rho '\overrightarrow {v'} \overrightarrow {v'}  \cdot \vec ndS'}  + \frac{{{p_0}}}{{{\rho _0}v_0^2}}\oint\limits_{S'(V')} {p'\overline{\overline I}  \cdot \vec ndS'}  - \frac{{{\tau _0}}}{{{\rho _0}v_0^2}}\oint\limits_{S'(V')} {\overline{\overline {\tau '}}  \cdot \vec ndS'}  = \frac{{{f_0}{L_0}}}{{v_0^2}}\int\limits_{V'} {\rho '\overrightarrow {{{f'}_e}} dV'} \\ \frac{{{L_0}}}{{{v_0}{t_0}}}\frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho 'E'dV'}  + \oint\limits_{S'(V')} {\rho 'E'\overrightarrow {v'}  \cdot \vec ndS'}  + \frac{{{p_0}}}{{{\rho _0}{E_0}{v_0}}}\oint\limits_{S'(V')} {p'\overrightarrow {v'}  \cdot \vec ndS'}  - \frac{{{\tau _0}}}{{{\rho _0}{E_0}}}\oint\limits_{S'(V')} {\left( {\overline{\overline {\tau '}}  \cdot \overrightarrow {v'} } \right) \cdot \vec ndS'}  + \\ - \frac{{{k_0}{T_0}}}{{{\rho _0}{E_0}{v_0}{L_0}}}\oint\limits_{S'(V')} {k'\overrightarrow {\nabla '} T' \cdot \vec ndS'}  = \frac{{{f_0}{L_0}}}{{{E_0}}}\int\limits_{V'} {\rho '\overrightarrow {{{f'}_e}}  \cdot \overrightarrow {v'} dV'}  + \frac{{{q_0}{L_0}}}{{{E_0}{v_0}}}\int\limits_{V'} {\rho '{{q'}_h}dV'} \end{array}\f$
+
+It is possible to recognize 7 non-dimensional numbers:
+ - \f$ \rm{St} = \frac{L_0}{v_0 t_0}\f$ Strouhal number; it is the ratio between characteristic frequency and the fluid dynamic one; for non periodic flow it is set to 1;
+ - \f$ \rm{Ru} = \frac{\rho_0 v_0^2}{p_0}\f$ Ruark number; it is the ratio between inertial (convective) force and pressure one; for a Newtonian fluid it is set to 1;
+ - \f$ \rm{Ma} = \frac{v_0}{a_0}\f$ Mach number; it is the ratio between velocity and speed of sound;
+ - \f$ \rm{Re} = \frac{\rho_0 v_0 L_0}{\mu_0}\f$ Reynolds number; it is the ratio between inertial (convective) force and viscous one;
+ - \f$ \rm{Fr} = \sqrt{\frac{v_0^2}{f_0 L_0}}\f$ Froude number; it is the ratio between inertial (convective) force and volume (mass) one;
+ - \f$ \rm{Pr} = \frac{\mu_0 c_{p0}}{k_0}\f$ Prandtl number; it is the ratio between momentum diffusion and heat one;
+ - \f$ \rm{Ec} = \frac{v_0^2}{c_{p0}T_0}\f$ Eckert number; it is the ratio between kinetic energy and enthalpy one;
+
+By means of the above non-dimensional numbers the conservation equations could be written as:
+
+\f$ \begin{array}{l} {\rm{St}}\frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho 'dV'}  + \oint\limits_{S'(V')} {\rho '\overrightarrow {v'}  \cdot \vec ndS'}  = 0\\ {\rm{St}}\frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho '\overrightarrow {v'} dV'}  + \oint\limits_{S'(V')} {\rho '\overrightarrow {v'} \overrightarrow {v'}  \cdot \vec ndS'}  + \frac{1}{{{\rm{Ru}}}}\oint\limits_{S'(V')} {p'\overline{\overline I}  \cdot \vec ndS'}  - \frac{1}{{{\rm{Re}}}}\oint\limits_{S'(V')} {\overline{\overline {\tau '}}  \cdot \vec ndS'}  = \frac{1}{{{\rm{F}}{{\rm{r}}^2}}}\int\limits_{V'} {\rho '\overrightarrow {{{f'}_e}} dV'} \\ {\rm{St}}\frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho 'E'dV'}  + \oint\limits_{S'(V')} {\rho 'E'\overrightarrow {v'}  \cdot \vec ndS'}  + \frac{{{\rm{Ec}}}}{{{\rm{Ru}}}}\oint\limits_{S'(V')} {p'\overrightarrow {v'}  \cdot \vec ndS'}  - \frac{{{\rm{Ec}}}}{{{\rm{Re}}}}\oint\limits_{S'(V')} {\left( {\overline{\overline {\tau '}}  \cdot \overrightarrow {v'} } \right) \cdot \vec ndS'}  + \\ - \frac{1}{{{\rm{PrRe}}}}\oint\limits_{S'(V')} {k'\overrightarrow {\nabla '} T' \cdot \vec ndS'}  = \frac{{{\rm{Ec}}}}{{{\rm{F}}{{\rm{r}}^2}}}\int\limits_{V'} {\rho '\overrightarrow {{{f'}_e}}  \cdot \overrightarrow {v'} dV'}  + \frac{{{q_0}{L_0}}}{{{E_0}{v_0}}}\int\limits_{V'} {\rho '{{q'}_h}dV'} \end{array} \f$
+
+We are interested in Newtonian fluid in which \f$\rm{St} = 1\f$, \f$\rm{Ru} = 1 => \rm{Ma} = \frac{1}{\sqrt{\gamma}}\f$ and \f$\rm{Ec} = 1\f$:
+ - \f$ t_0 = \frac{L_0}{v_0}\f$
+ - \f$ p_0 = \rho_0 v_0^2 => a_0 = \sqrt{\gamma}v_0\f$
+ - \f$ c_{p0}T_0 = v_0^2\f$
+
+As a consequence the non dimensional conservation equations are:
+
+\f$ \begin{array}{l} \frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho 'dV'}  + \oint\limits_{S'(V')} {\rho '\overrightarrow {v'}  \cdot \vec ndS'}  = 0\\ \frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho '\overrightarrow {v'} dV'}  + \oint\limits_{S'(V')} {\left( {\rho '\overrightarrow {v'} \overrightarrow {v'}  + p'\overline{\overline I} } \right) \cdot \vec ndS'}  - \frac{1}{{{\rm{Re}}}}\oint\limits_{S'(V')} {\overline{\overline {\tau '}}  \cdot \vec ndS'}  = \frac{1}{{{\rm{F}}{{\rm{r}}^2}}}\int\limits_{V'} {\rho '\overrightarrow {{{f'}_e}} dV'} \\ \frac{\partial }{{\partial t'}}\int\limits_{V'} {\rho 'E'dV'}  + \oint\limits_{S'(V')} {\left( {\rho 'E' + p'} \right)\overrightarrow {v'}  \cdot \vec ndS'}  - \frac{{\rm{1}}}{{{\rm{Re}}}}\oint\limits_{S'(V')} {\left( {\overline{\overline {\tau '}}  \cdot \overrightarrow {v'} } \right) \cdot \vec ndS'}  - \frac{1}{{{\rm{PrRe}}}}\oint\limits_{S'(V')} {k'\overrightarrow {\nabla '} T' \cdot \vec ndS'}  = \\ \frac{{\rm{1}}}{{{\rm{F}}{{\rm{r}}^2}}}\int\limits_{V'} {\rho '\overrightarrow {{{f'}_e}}  \cdot \overrightarrow {v'} dV'}  + \frac{{{q_0}{L_0}}}{{{E_0}{v_0}}}\int\limits_{V'} {\rho '{{q'}_h}dV'} \end{array} \f$
+
+The selected non-dimensional numbers are:
+ - \f$ \rm{Re} = \frac{\rho_0 v_0 L_0}{\mu_0}\f$ Reynolds number;
+ - \f$ \rm{Fr} = \sqrt{\frac{v_0^2}{f_0 L_0}}\f$ Froude number;
+ - \f$ \rm{Pr} = \frac{\mu_0 c_{p0}}{k_0}\f$ Prandtl number;
+
+The above non-dimensional numbers are dependent each other. In Reynolds and Froude numbers \f$L_0\f$ and \f$v_0\f$ are present.  Similarly in Reynolds and Prandtl numbers \f$\mu_0\f$ is present. Therefore fixing the above non-dimensional numbers the following reference values must be fixed:
+ - \f$ L_0 \f$ reference length;
+ - \f$ \rho_0 \f$ reference density;
+ - \f$ v_0 \f$ reference velocity;
+ - \f$ \mu_0 \f$ reference dynamic viscosity;
+ - \f$ f_0 \f$ reference specific force;
+ - \f$ c_0 \f$ reference specific heat;
+ - \f$ k_0 \f$ reference thermal conductivity coefficient.
+
+We have fixed the following reference values:
+ - \f$ L_0 \f$ reference length;
+ - \f$ \rho_0 \f$ reference density;
+ - \f$ v_0 \f$ reference velocity;
+ - \f$ c_0 \f$ reference specific heat.
+
+These selections with the above selected non-dimensional numbers fix all other reference quantities:
+ - \f$ \mu_0 = \frac{\rho_0 v_0 L_0}{\rm{Re}}\f$ reference dynamic viscosity;
+ - \f$ f_0 = \frac{v_0^2}{L_0 \rm{Fr}^2}\f$ reference specific force;
+ - \f$ k_0 = \frac{\mu_0 c_0}{\rm{Pr}}\f$ reference thermal conductivity coefficient.
+ - \f$ t_0 = \frac{L_0}{v_0}\f$ reference time;
+ - \f$ p_0 = \rho_0 v_0^2 \f$ reference pressure;
+ - \f$ a_0 = \sqrt{\gamma}v_0 \f$ reference speed of sound;
+ - \f$ T_0 = \frac{v_0^2}{c_0} \f$ reference temperature;
+ - \f$ E_0 = v_0^2 \f$ reference specific energy;
+ - \f$ q_0 = \frac{v_0^3}{L_0} \f$ reference specific heat.
+
+The above equations constitute a system of partial differential equations closed by enforcing appropriate boundary conditions and initial conditions (at physical and computational boundaries).
+
+@section NumericalModels Numerical Models
+
+For the numerical solution of the above system a shock-capturing finite volume scheme is adopted. The fluid domain \f$D\f$ is decomposed in \f$N_b\f$ structured blocks \f$D^b\f$, each subdivided in \f$N_i \times N_j \times N_k\f$ disjoint hexahedrons \f$D_{ijk}^b\f$ such that \f$\bigcup D_{ijk}^b = D^b\f$. Conservation laws are then applied to each finite volume:
+
+\f$\frac{\partial }{{\partial t}}\int\limits_{{V_{ijk}}} {\overrightarrow U d{V_{ijk}}}  + \sum\limits_{s = 1}^6 {\int\limits_{{S_s}\left( {{V_{ijk}}} \right)} {\overline{\overline F}  \cdot \overrightarrow {{n_s}} d{S_s}} }  = \int\limits_{{V_{ijk}}} {\overrightarrow {{Q_V}} d{V_{ijk}}}  + \sum\limits_{s = 1}^6 {\int\limits_{{S_s}\left( {{V_{ijk}}} \right)} {\overline{\overline {{Q_S}}}  \cdot \overrightarrow {{n_s}} d{S_s}} } \f$ \n
+where \f$S_s\f$ is the \f$s^{th}\f$ face of the finite volume \f$D_{ijk}\f$ whose measure is \f$V_{ijk}\f$.
+
+This system could be written in terms of \em residual \em function:
+
+\f$\begin{array}{l} \frac{\partial }{{\partial t}}\int\limits_{{V_{ijk}}} {\overrightarrow U d{V_{ijk}}}  = R\left( {\overrightarrow U } \right)\\ R\left( {\overrightarrow U } \right) =  - \sum\limits_{s = 1}^6 {\int\limits_{{S_s}\left( {{V_{ijk}}} \right)} {\overline{\overline F}  \cdot \overrightarrow {{n_s}} d{S_s}} }  + \int\limits_{{V_{ijk}}} {\overrightarrow {{Q_V}} d{V_{ijk}}}  + \sum\limits_{s = 1}^6 {\int\limits_{{S_s}\left( {{V_{ijk}}} \right)} {\overline{\overline {{Q_S}}}  \cdot \overrightarrow {{n_s}} d{S_s}} } \end{array}\f$ \n
+where the residual function \f$R\left({\overrightarrow U }\right)\f$ is the space operator. In order to compute this operator several different schemes are adopted for each different term of the operator.
+
+For computing the numerical fluxes several different solvers are used. It is useful to distinguish between convective and diffusive fluxes:
+
+For the convective fluxes \f$(\overline{\overline F}  - \overline{\overline {{Q_S}}})_{conv}  = \left[ {\begin{array}{*{20}{c}} {\rho \vec v}\\ {\rho \vec v\vec v + p\overline{\overline I } }\\ {(\rho E+p)\vec v } \end{array}} \right]\f$ Riemann Problem solvers are used. High order approximation of numerical fluxes is obtained by means of WENO (Weighted Essentially Non Oscillatory) reconstruction.
+
+For the diffusive fluxes \f${\left( {\overline{\overline F}  - \overline{\overline {{Q_S}}} } \right)_{diff}} = \left[ {\begin{array}{*{20}{c}} 0\\ { - \overline{\overline \tau } }\\ { - \overline{\overline \tau }  \cdot \vec v - k\overrightarrow \nabla  T} \end{array}} \right]\f$ a standard central second order approximation is used (based on Finite-Volume derivative approximation).
+
+The time integration of the unsteady terms is computed by means of Runge-Kutta schemes.
+
+For more details see the Application Program Interface (API) pages of this documentation.
+
+
+@page Compiling Compiling Instructions
+
+Compiling Instructions
+
+@section CompInst Compiling Instructions
+
+Examples of compiling are:
+- DCS code with default options:
+  @code
+  make
+  @endcode
+- parallel and performance-optimized DCS:
+  @code
+  make DEBUG=no OPTIMIZE=yes OPENMP=yes
+  @endcode
+- building documentation:
+  @code
+  make doc
+  @endcode
+- cleaning the project directory:
+  @code
+  make cleanall
+  @endcode
+
+In the following subsections there are more details of each option and rule of the provided makefile.
+
+@subsection Makefile
+
+The provided makefile has several options. It has one rule that prints all options available and the default settings. Typing in the shell prompt: @code make help @endcode the following output will be printed:
+
+@code
+ Make options of OFF codes
+
+ Compiler choice
+  COMPILER=gnu   => GNU gfortran
+  COMPILER=intel => Intel Fortran
+  COMPILER=pgi   => Portland Group Fortran
+  COMPILER=g95   => free g95
+  COMPILER=gnu   => default
+
+ Compiling options
+  DEBUG=yes(no)    => on(off) debug                  (default yes)
+  F03STD=yes(no)   => on(off) check standard fortran (default yes)
+  OPTIMIZE=yes(no) => on(off) optimization           (default no)
+  OPENMP=yes(no)   => on(off) OpenMP directives      (default no)
+  MPI=yes(no)      => on(off) MPI    directives      (default no)
+
+ Preprocessing options
+  R16P=yes(no) => on(off) definition of real with "128 bit" (default no)
+  NULi=yes(no) => on(off) nullify i direction (1D or 2D)    (default no)
+  NULj=yes(no) => on(off) nullify j direction (1D or 2D)    (default no)
+  NULk=yes(no) => on(off) nullify k direction (1D or 2D)    (default no)
+  PPL=yes(no)  => on(off) Positivity Preserving Limiter     (default no)
+  WENO=WENO/WENOZ/WENOM WENO algorithm (default WENO)
+   WENO  => Original Jiang-Shu
+   WENOZ => Improved Borges-Carmona-Costa-Don
+   WENOM => Improved Henrick-Aslam-Powers
+  RECV=RECVC/RECVP reconstruction variables type (default RECVC)
+   RECVC => reconstruction in (local) characteristic variables
+   RECVP => reconstruction in primitive variables
+  RSU=HLLCb/HLLCc/HLLCp/HLLCt/HLLCz/EXA/PVL/TR/TS/APRS/ALFR/LF/LFz/ROE Riemann solver algorithm (default HLLCp)
+   HLLCb => Approximate HLLC solver using BCLC waves speed estimation
+   HLLCc => Approximate HLLC solver using CVL  waves speed estimation
+   HLLCp => Approximate HLLC solver using PVL  waves speed estimation
+   HLLCt => Approximate HLLC solver using TR   waves speed estimation
+   HLLCz => Approximate HLLC solver using Z    waves speed estimation
+   EXA   => Exact solver
+   PVL   => Approximate PVL solver
+   TR    => Approximate TR solver
+   TS    => Approximate TS solver
+   APRS  => Approximate APRS solver
+   ALFR  => Approximate ALFR solver
+   LFp   => Approximate Lax-Friedrichs solver using PVL waves speed estimation
+   LFz   => Approximate Lax-Friedrichs solver using Z   waves speed estimation
+   ROE   => Approximate Roe solver
+  WS=WSu/WSup Waves Speed estimation algorithm (default WSup)
+   WSu  => WavesSpeed14u  or WavesSpeed1234u  algorithm
+   WSup => WavesSpeed14up or WavesSpeed1234up algorithm
+  SMSW=SMSWz/SMSWliu/SMSWvanleer/SMSWvanalbada/SMSWharten smoothness switchg algorithm (default SMSWz)
+   SMSWz         => Riemann-solver-like algorithm
+   SMSWliu       => Liu algorithm
+   SMSWvanleer   => van Leer slope limiter algorithm
+   SMSWvanAlbada => van Albada slope limiter  algorithm
+   SMSWharten    => Harten slope limiter algorithm
+  HYBRID=NOHYBRID/HYBRID/HYBRIDC hybrid scheme (default NOHYBRID)
+   NOHYBRID => no hybrid scheme
+   HYBRID   => hybrid weno/weno_optimal scheme
+   HYBRIDC  => hybrid weno/noweno_central scheme
+
+ External libraries
+  TECIO=yes(no) => on(off) Tecplot IO library linking (default no)
+
+ Provided Rules
+  Defualt rule => OFF
+  help         => printing this help message
+  OFF          => building OFF code
+  IBM          => building IBM code
+  POG          => building POG code
+  cleanobj     => cleaning compiled object
+  cleanmod     => cleaning .mod files
+  cleanmsg     => cleaning make-log massage files
+  cleanexe     => cleaning executable files
+  clean        => running cleanobj, cleanmod and cleanmsg
+  cleanall     => running clean and cleanexe
+  tar          => creating a tar archive of the project
+  doc          => building the documentation
+@endcode
+
+@subsection Mopts Makefile Options
+
+The makefiles provides several options. These can be divided in make options (compiler choice and compiling options) and in pre-processing options. For the pre-processing options the C pre-process paradigm has been used.
+
+The meaning of the options are:
+
+- <b>Compiler choice:</b>
+  - <b>COMPILER=gnu  </b> the codes is compiled using GNU gfortran compiler;
+  - <b>COMPILER=intel</b> the codes is compiled using Intel Fortran compiler;
+  - <b>COMPILER=pgi  </b> the codes is compiled using Portland Group Fortran compiler (<em>not yet supported</em>);
+  - <b>COMPILER=g95  </b> the codes is compiled using free g95 compiler (<em>not yet supported</em>).
+- <b>Compiling options:</b>
+  - <b>DEBUG=yes(no)   </b> compilation with (or not) debug symbols;
+  - <b>F03STD=yes(no)  </b> checking (or not) the compliance to Fortran standard 2003;
+  - <b>OPTIMIZE=yes(no)</b> performance-optimized compilation (or not);
+  - <b>OPENMP=yes(no)  </b> compilation with (or not) OpenMP directives;
+  - <b>MPI=yes(no)     </b> compilation with (or not) MPI directives.
+- <b>Preprocessing options:</b>
+  - <b>R16P=yes(no)</b> activation (or not) support for real with "128 bit" (quadruple precision) representation;
+  - <b>NULi=yes(no)</b> nullify i direction integration for 1D or 2D simulation;
+  - <b>NULj=yes(no)</b> nullify j direction integration for 1D or 2D simulation;
+  - <b>NULk=yes(no)</b> nullify k direction integration for 1D or 2D simulation;
+  - <b>PPL=yes(no) </b> activation (or not) the Positivity Preserving Limiter for high order WENO scheme.
+  - <b>WENO=WENO/WENOZ/WENOM WENO</b> WENO algorithm:
+    - <b>WENO </b> original Jiang-Shu sheme;
+    - <b>WENOZ</b> improved Borges-Carmona-Costa-Don scheme;
+    - <b>WENOM</b> improved Henrick-Aslam-Powers scheme.
+  - <b>RECV=RECVC/RECVP</b> high order WENO scheme reconstruction variables type:
+    - <b>RECVC</b> reconstruction in (local) characteristic variables;
+    - <b>RECVP</b> reconstruction in primitive variables.
+  - <b>RSU=HLLCb/HLLCc/HLLCp/HLLCt/HLLCz/EXA/PVL/TR/TS/APRS/ALFR/LF/LFz/ROE</b> Riemann solver algorithm:
+    - <b>HLLCb</b> approximate HLLC solver using BCLC waves speed estimation;
+    - <b>HLLCc</b> approximate HLLC solver using CVL  waves speed estimation;
+    - <b>HLLCp</b> approximate HLLC solver using PVL  waves speed estimation;
+    - <b>HLLCt</b> approximate HLLC solver using TR   waves speed estimation;
+    - <b>HLLCz</b> approximate HLLC solver using Z    waves speed estimation;
+    - <b>EXA  </b> exact solver based on u-function iterative solution;
+    - <b>PVL  </b> approximate PVL (Primitive Variables Linearization) solver;
+    - <b>TR   </b> approximate TR (Two Rarefaction) solver;
+    - <b>TS   </b> approximate TS (Two Shock) solver;
+    - <b>APRS </b> approximate APRS (Adaptive PVL-TR-TS) solver;
+    - <b>ALFR </b> approximate ALFR (Adaptive HLL-TR-TS) solver;
+    - <b>LFp  </b> approximate local Lax-Friedrichs solver using PVL waves speed estimation;
+    - <b>LFz  </b> approximate local Lax-Friedrichs solver using Z   waves speed estimation;
+    - <b>ROE  </b> approximate Roe solver.
+  - <b>WS=WSu/WSup</b> waves speed estimation algorithm:
+    - <b>WSu </b> WavesSpeed14u  or WavesSpeed1234u  algorithm;
+    - <b>WSup</b> WavesSpeed14up or WavesSpeed1234up algorithm;
+  - <b>SMSW=SMSWz/SMSWliu/SMSWvanleer/SMSWvanalbada/SMSWharten</b> smoothness switchg algorithm:
+    - <b>SMSWz        </b> Riemann-solver-like algorithm;
+    - <b>SMSWliu      </b> Liu algorithm;
+    - <b>SMSWvanleer  </b> van Leer slope limiter algorithm;
+    - <b>SMSWvanAlbada</b> van Albada slope limiter  algorithm;
+    - <b>SMSWharten   </b> Harten slope limiter algorithm.
+  - <b>HYBRID=NOHYBRID/HYBRID/HYBRIDC</b>: hybrid (WENO/Central) scheme:
+    - <b>NOHYBRID</b> no hybrid scheme;
+    - <b>HYBRID  </b> hybrid weno/weno_optimal scheme;
+    - <b>HYBRIDC </b> hybrid weno/noweno_central scheme.
+@subsection Mrules Makefile Rules
+
+The makefiles provides several rules. Their meanings are:
+
+- <b>help    </b>: print help message in the shell prompt providing informations about the options and the rules available;
+- <b>OFF     </b>: build OFF code according to the options chosen; the parallel options OPENMPI and MPI can be used;
+- <b>IBM     </b>: build IBM code according to the options chosen; IBM has no parallel symbols thus activating the parallel options OPENMPI and MPI has no sense;
+- <b>POG     </b>: build POG code according to the options chosen; POG has only OPENMPI symbols thus activating the parallel option MPI has no sense;
+- <b>cleanobj</b>: clean compiled object file .o that are saved in obj directory by default;
+- <b>cleanmod</b>: clean modules files .mod that are saved in obj directory by default;
+- <b>cleanmsg</b>: clean log massage files of the make compilation that are "error_message" and "diagnostic_messages";
+- <b>cleanexe</b>: clean executable files OFF, IBM and POG that are stored in ./ by default;
+- <b>clean   </b>: execute cleanobj, cleanmod and cleanmsgr;
+- <b>cleanall</b>: execute clean and cleanexe;
+- <b>tar     </b>: create a tar archive containing input lib util and src directories and makefile;
+- <b>doc     </b>: build the documentation (by means doxygen) in the directory doc/html.
+
+@note
+In order to build the documentation the following dependences must be satisfied:
+- .doxigenconfig file must be in project main directory;
+- doc directory with doc/fpp.sh, doc/mainpage.txt and doc/off-layout.xml files must be in project main directory;
+- doxygen program must be installed (http://www.stack.nl/~dimitri/doxygen/).
+All of the above pre-requisites are satisfied if the GitHub repository (https://github.com/szaghi/OFF) is cloned. \n
+\n
+
+@page Examples Examples of usage
+
+*/

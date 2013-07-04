@@ -28,7 +28,7 @@ DOXYFILE_ENCODING      = UTF-8
 # identify the project. Note that if you do not use Doxywizard you need
 # to put quotes around the project name if it contains spaces.
 
-PROJECT_NAME           = "OFF"
+PROJECT_NAME           = "DCS"
 
 # The PROJECT_NUMBER tag can be used to enter a project or revision number.
 # This could be handy for archiving the generated documentation or
@@ -40,7 +40,7 @@ PROJECT_NUMBER         =
 # for a project that appears at the top of each page and should give viewer
 # a quick idea about the purpose of the project. Keep the description short.
 
-PROJECT_BRIEF          = "an Open source Finite volumes Fluid dynamics code"
+PROJECT_BRIEF          = "a Driven-Cavity Open source Simulator code"
 
 # With the PROJECT_LOGO tag one can specify an logo or icon that is
 # included in the documentation. The maximum height of the logo should not
@@ -197,8 +197,7 @@ TAB_SIZE               = 8
 # will result in a user-defined paragraph with heading "Side Effects:".
 # You can put \n's in the value part of an alias to insert newlines.
 
-ALIASES                = "libvtk=\em Lib_VTK_IO" \
-                         "off=\em OFF"
+ALIASES                =
 
 # This tag can be used to specify a number of word-keyword mappings (TCL only).
 # A mapping has the form "name=value". For example adding
@@ -582,7 +581,7 @@ FILE_VERSION_FILTER    =
 # You can optionally specify a file name after the option, if omitted
 # DoxygenLayout.xml will be used as the name of the layout file.
 
-LAYOUT_FILE            = doc/off-layout.xml
+LAYOUT_FILE            = doc/layout.xml
 
 # The CITE_BIB_FILES tag can be used to specify one or more bib files
 # containing the references data. This must be a list of .bib files. The
@@ -657,9 +656,7 @@ WARN_LOGFILE           =
 
 INPUT                  = ./ \
                          ./doc/ \
-                         ./src/ \
-                         ./examples/1D/shock_tube/SOD/ \
-                         ./examples/2D/two_dimensional_riemann_problems/
+                         ./src/
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -741,13 +738,7 @@ EXAMPLE_RECURSIVE      = NO
 # directories that contain image that are included in the documentation (see
 # the \image command).
 
-IMAGE_PATH             = doc/                                                     \
-                         examples/2D/two_dimensional_riemann_problems/kt-c03/pog/ \
-                         examples/2D/two_dimensional_riemann_problems/kt-c04/pog/ \
-                         examples/2D/two_dimensional_riemann_problems/kt-c05/pog/ \
-                         examples/2D/two_dimensional_riemann_problems/kt-c06/pog/ \
-                         examples/2D/two_dimensional_riemann_problems/kt-c12/pog/ \
-                         examples/2D/two_dimensional_riemann_problems/kt-c17/pog/
+IMAGE_PATH             = doc/
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program

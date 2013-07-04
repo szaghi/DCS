@@ -1,6 +1,3 @@
-! including modules definitions
-#include "IR_Precision.f90"
-
 !> @addtogroup Program Programs
 !> List of excutable programs.
 !> @addtogroup DerivedType Derived Types
@@ -21,21 +18,25 @@
 !> @ingroup DerivedType
 !> @{
 !> @defgroup Data_Type_ConservativeDerivedType Data_Type_Conservative
+!> Type_Conservative definition
 !> @}
 
 !> @ingroup Interface
 !> @{
 !> @defgroup Data_Type_ConservativeInterface Data_Type_Conservative
+!> Type_Conservative definition
 !> @}
 
 !> @ingroup PublicProcedure
 !> @{
 !> @defgroup Data_Type_ConservativePublicProcedure Data_Type_Conservative
+!> Type_Conservative definition
 !> @}
 
 !> @ingroup PrivateProcedure
 !> @{
 !> @defgroup Data_Type_ConservativePrivateProcedure Data_Type_Conservative
+!> Type_Conservative definition
 !> @}
 
 !> This module contains the definition of Type_Conservative and its procedures.
@@ -239,21 +240,25 @@ endmodule Data_Type_Conservative
 !> @ingroup DerivedType
 !> @{
 !> @defgroup Data_Type_MeshDerivedType Data_Type_Mesh
+!> Type_Mesh definition
 !> @}
 
 !> @ingroup Interface
 !> @{
 !> @defgroup Data_Type_MeshInterface Data_Type_Mesh
+!> Type_Mesh definition
 !> @}
 
 !> @ingroup PublicProcedure
 !> @{
 !> @defgroup Data_Type_MeshPublicProcedure Data_Type_Mesh
+!> Type_Mesh definition
 !> @}
 
 !> @ingroup PrivateProcedure
 !> @{
 !> @defgroup Data_Type_MeshPrivateProcedure Data_Type_Mesh
+!> Type_Mesh definition
 !> @}
 
 !> This module contains the definition of Type_Mesh and its procedures.
@@ -353,21 +358,25 @@ endmodule Data_Type_Mesh
 !> @ingroup DerivedType
 !> @{
 !> @defgroup Data_Type_CavityDerivedType Data_Type_Cavity
+!> Type_Cavity definition
 !> @}
 
 !> @ingroup Interface
 !> @{
 !> @defgroup Data_Type_CavityInterface Data_Type_Cavity
+!> Type_Cavity definition
 !> @}
 
 !> @ingroup PublicProcedure
 !> @{
 !> @defgroup Data_Type_CavityPublicProcedure Data_Type_Cavity
+!> Type_Cavity definition
 !> @}
 
 !> @ingroup PrivateProcedure
 !> @{
 !> @defgroup Data_Type_CavityPrivateProcedure Data_Type_Cavity
+!> Type_Cavity definition
 !> @}
 
 !> This module contains the definition of Type_Cavity and its procedures.
@@ -469,16 +478,19 @@ endmodule Data_Type_Cavity
 !> @ingroup Program
 !> @{
 !> @defgroup DCSProgram DCS
+!> Driven-Cavity Simulator
 !> @}
 
 !> @ingroup PrivateVarPar
 !> @{
 !> @defgroup DCSPrivateVarPar DCS
+!> Driven-Cavity Simulator
 !> @}
 
 !> @ingroup PrivateProcedure
 !> @{
 !> @defgroup DCSPrivateProcedure DCS
+!> Driven-Cavity Simulator
 !> @}
 
 !> @brief DCS is an Open source program for simulating driven cavity problems.
