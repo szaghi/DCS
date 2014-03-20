@@ -12,10 +12,6 @@ Stefano Zaghi and Emilio Campana
 
 DCS is a didactic code aimed at presenting a practical implementation of some simple numerical methods for solving 2D Navier-Stokes equations. It constitutes supplementary educational material of other scientific disclosure efforts.
 
-### Mathematical and Numerical Models
-
-To be completed.
-
 ## Copyrights
 
 DCS is an open source project, it is distributed under the [GPL v3](http://www.gnu.org/licenses/gpl-3.0.html). Anyone is interest to use, to develop or to contribute to DCS is welcome.
@@ -23,6 +19,14 @@ DCS is an open source project, it is distributed under the [GPL v3](http://www.g
 ## Documentation
 
 Detailed documentation of the Application Program Interface (API) can be found on the [GitHub pages](http://szaghi.github.com/DCS/index.html) of the project. In what follows a brief guide is reported.
+
+### Mathematical and Numerical Models
+
+The 2D incompressible Navier-Stokes equations are written into the non dimensional streamfunction (s) and vorticty (v) formulation:
+
+![equation](http://latex.codecogs.com/gif.latex?\begin{matrix}&space;\frac{\partial^2s}{\partial&space;x^2}&plus;&space;\frac{\partial^2s}{\partial&space;y^2}=-v\\&space;\frac{1}{Re}\frac{\partial^2v}{\partial&space;x^2}&plus;\frac{1}{Re}&space;\frac{\partial^2v}{\partial&space;y^2}=&space;\frac{\partial&space;s}{\partial&space;y}\frac{\partial&space;v}{\partial&space;x}-\frac{\partial&space;s}{\partial&space;x}\frac{\partial&space;v}{\partial&space;y}&space;\end{matrix})
+
+![equation](http://www.texify.com/img/%5CLARGE%5C%21%5Cbegin%7Bmatrix%7D%5Cfrac%7B%5Cpartial%5E2s%7D%7B%5Cpartial%20x%5E2%7D%2B%20%5Cfrac%7B%5Cpartial%5E2s%7D%7B%5Cpartial%20y%5E2%7D%3D-v%5C%5C%20%5Cfrac%7B1%7D%7BRe%7D%5Cfrac%7B%5Cpartial%5E2v%7D%7B%5Cpartial%20x%5E2%7D%2B%5Cfrac%7B1%7D%7BRe%7D%20%5Cfrac%7B%5Cpartial%5E2v%7D%7B%5Cpartial%20y%5E2%7D%3D%20%5Cfrac%7B%5Cpartial%20s%7D%7B%5Cpartial%20y%7D%5Cfrac%7B%5Cpartial%20v%7D%7B%5Cpartial%20x%7D-%5Cfrac%7B%5Cpartial%20s%7D%7B%5Cpartial%20x%7D%5Cfrac%7B%5Cpartial%20v%7D%7B%5Cpartial%20y%7D%5Cend%7Bmatrix%7D.gif)
 
 ### Implementation Details
 
