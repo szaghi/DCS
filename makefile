@@ -37,11 +37,6 @@ help:
 	@echo -e '\033[1;31m  OPTIMIZE=yes(no) \033[0m\033[1m => on(off) optimization           (default $(OPTIMIZE))\033[0m'
 	@echo -e '\033[1;31m  OPENMP=yes(no)   \033[0m\033[1m => on(off) OpenMP directives      (default $(OPENMP))\033[0m'
 	@echo
-	@echo -e '\033[1;31m Preprocessing options\033[0m'
-	@echo -e '\033[1;31m  NULi=yes(no) \033[0m\033[1m => on(off) nullify i direction (1D or 2D) (default $(NULi))\033[0m'
-	@echo -e '\033[1;31m  NULj=yes(no) \033[0m\033[1m => on(off) nullify j direction (1D or 2D) (default $(NULj))\033[0m'
-	@echo -e '\033[1;31m  NULk=yes(no) \033[0m\033[1m => on(off) nullify k direction (1D or 2D) (default $(NULk))\033[0m'
-	@echo
 	@echo -e '\033[1;31m Provided Rules: default=DCS\033[0m\033[1m => compile the code\033[0m'
 	@echo -e '\033[1;31m  cleanobj     =>\033[0m\033[1m cleaning compiled object\033[0m'
 	@echo -e '\033[1;31m  cleanmod     =>\033[0m\033[1m cleaning .mod files\033[0m'
@@ -118,32 +113,6 @@ ifeq "$(OPENMP)" "yes"
   OPTSC := $(OPTSC) $(OMP)
   OPTSL := $(OPTSL) $(OMP)
 endif
-# pre-processing options
-# 1D or 2D solver
-NULiCHK = (Unknown NULi switch) Used default NULi=no
-ifeq "$(NULi)" "no"
-  NULiCHK = (Known NULi switch) Used NULi=$(NULi)
-endif
-ifeq "$(NULi)" "yes"
-  NULiCHK = (Known NULi switch) Used NULi=$(NULi)
-  PREPROC := $(PREPROC) -DNULi
-endif
-NULjCHK = (Unknown NULj switch) Used default NULj=no
-ifeq "$(NULj)" "no"
-  NULjCHK = (Known NULj switch) Used NULj=$(NULj)
-endif
-ifeq "$(NULj)" "yes"
-  NULjCHK = (Known NULj switch) Used NULj=$(NULj)
-  PREPROC := $(PREPROC) -DNULj
-endif
-NULkCHK = (Unknown NULk switch) Used default NULk=no
-ifeq "$(NULk)" "no"
-  NULkCHK = (Known NULk switch) Used NULk=$(NULk)
-endif
-ifeq "$(NULk)" "yes"
-  NULkCHK = (Known NULk switch) Used NULk=$(NULk)
-  PREPROC := $(PREPROC) -DNULk
-endif
 OPTSC := $(OPTSC) $(PREPROC)
 OPTSL := $(OPTSL) $(PREPROC)
 
@@ -153,10 +122,7 @@ PRINTCHK = "\\033[1;31m Compiler used \\033[0m\\033[1m $(COMPILER) => $(WHICHFC)
             \\033[1;31mSource dir    \\033[0m\\033[1m $(DSRC)\\033[0m \n\
             \\033[1;31m Debug         \\033[0m\\033[1m $(DEBUG)\\033[0m \n\
             \\033[1;31m F-standard    \\033[0m\\033[1m $(F03STD)\\033[0m \n\
-            \\033[1;31m Optimize      \\033[0m\\033[1m $(OPTIMIZE)\\033[0m \n\
-            \\033[1;31m Nullify i     \\033[0m\\033[1m $(NULiCHK)\\033[0m \n\
-            \\033[1;31m Nullify j     \\033[0m\\033[1m $(NULjCHK)\\033[0m \n\
-            \\033[1;31m Nullify k     \\033[0m\\033[1m $(NULkCHK)\\033[0m"
+            \\033[1;31m Optimize      \\033[0m\\033[1m $(OPTIMIZE)\\033[0m"
 #-----------------------------------------------------------------------------------------------------------------------------------
 
 #-----------------------------------------------------------------------------------------------------------------------------------
