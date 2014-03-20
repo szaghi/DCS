@@ -11,9 +11,10 @@ $(VERBOSE).SILENT:
 #----------------------------------------------------------------------------------------------------------------------------------
 # User options
 COMPILER  = intel
-DEBUG     = yes
+DEBUG     = no
 F03STD    = yes
 OPTIMIZE  = no
+OPENMP    = no
 NULi      = no
 NULj      = no
 NULk      = no
@@ -34,6 +35,7 @@ help:
 	@echo -e '\033[1;31m  DEBUG=yes(no)    \033[0m\033[1m => on(off) debug                  (default $(DEBUG))\033[0m'
 	@echo -e '\033[1;31m  F03STD=yes(no)   \033[0m\033[1m => on(off) check standard fortran (default $(F03STD))\033[0m'
 	@echo -e '\033[1;31m  OPTIMIZE=yes(no) \033[0m\033[1m => on(off) optimization           (default $(OPTIMIZE))\033[0m'
+	@echo -e '\033[1;31m  OPENMP=yes(no)   \033[0m\033[1m => on(off) OpenMP directives      (default $(OPENMP))\033[0m'
 	@echo
 	@echo -e '\033[1;31m Preprocessing options\033[0m'
 	@echo -e '\033[1;31m  NULi=yes(no) \033[0m\033[1m => on(off) nullify i direction (1D or 2D) (default $(NULi))\033[0m'
@@ -69,12 +71,14 @@ CHK_GNU = -fcheck=all
 DEB_GNU = -fmodule-private -ffree-line-length-132 -fimplicit-none -ffpe-trap=invalid,overflow -fbacktrace -fdump-core -finit-real=nan #-fno-range-check  ,precision,denormal,underflow
 STD_GNU = -std=f2003 -fall-intrinsics
 OPT_GNU = -O3
+OMP_GNU = -fopenmp
 # Intel
 WRN_INT = -warn all
 CHK_INT = -check all
 DEB_INT = -debug all -extend-source 132 -fpe-all=0 -fp-stack-check -fstack-protector-all -ftrapuv -no-ftz -traceback -gen-interfaces
 STD_INT = -std03
 OPT_INT = -O3 -ipo -inline all -ipo-jobs4 -vec-report1
+OMP_INT = -openmp
 # setting rules according user options
 ifeq "$(COMPILER)" "gnu"
   FC = gfortran
@@ -108,6 +112,11 @@ endif
 ifeq "$(OPTIMIZE)" "yes"
   OPTSC := $(OPTSC) $(OPT)
   OPTSL := $(OPTSL) $(OPT)
+endif
+ifeq "$(OPENMP)" "yes"
+  PREPROC := $(PREPROC) -DOPENMP
+  OPTSC := $(OPTSC) $(OMP)
+  OPTSL := $(OPTSL) $(OMP)
 endif
 # pre-processing options
 # 1D or 2D solver
@@ -224,8 +233,55 @@ $(DOBJ)ir_precision.o : IR_Precision.f90
 	@echo $(COTEXT) | tee -a make.log
 	@$(FC) $(OPTSC) $< -o $@ 1>> diagnostic_messages 2>> error_messages
 
-$(DOBJ)dcs.o : DCS.f90 \
+$(DOBJ)data_type_conservative.o : Data_Type_Conservative.f90 \
 	$(DOBJ)ir_precision.o
+	@echo $(COTEXT) | tee -a make.log
+	@$(FC) $(OPTSC) $< -o $@ 1>> diagnostic_messages 2>> error_messages
+
+$(DOBJ)data_type_cell_quad.o : Data_Type_Cell_Quad.f90 \
+	$(DOBJ)ir_precision.o \
+	$(DOBJ)data_type_face.o
+	@echo $(COTEXT) | tee -a make.log
+	@$(FC) $(OPTSC) $< -o $@ 1>> diagnostic_messages 2>> error_messages
+
+$(DOBJ)data_type_cavity.o : Data_Type_Cavity.f90 \
+	$(DOBJ)ir_precision.o \
+	$(DOBJ)data_type_conservative.o \
+	$(DOBJ)data_type_mesh.o
+	@echo $(COTEXT) | tee -a make.log
+	@$(FC) $(OPTSC) $< -o $@ 1>> diagnostic_messages 2>> error_messages
+
+$(DOBJ)data_type_face.o : Data_Type_Face.f90 \
+	$(DOBJ)ir_precision.o \
+	$(DOBJ)data_type_node.o \
+	$(DOBJ)data_type_vector.o
+	@echo $(COTEXT) | tee -a make.log
+	@$(FC) $(OPTSC) $< -o $@ 1>> diagnostic_messages 2>> error_messages
+
+$(DOBJ)data_type_mesh.o : Data_Type_Mesh.f90 \
+	$(DOBJ)ir_precision.o \
+	$(DOBJ)data_type_cell_quad.o \
+	$(DOBJ)data_type_node.o \
+	$(DOBJ)data_type_face.o
+	@echo $(COTEXT) | tee -a make.log
+	@$(FC) $(OPTSC) $< -o $@ 1>> diagnostic_messages 2>> error_messages
+
+$(DOBJ)data_type_node.o : Data_Type_Node.f90 \
+	$(DOBJ)ir_precision.o \
+	$(DOBJ)data_type_vector.o
+	@echo $(COTEXT) | tee -a make.log
+	@$(FC) $(OPTSC) $< -o $@ 1>> diagnostic_messages 2>> error_messages
+
+$(DOBJ)data_type_vector.o : Data_Type_Vector.f90 \
+	$(DOBJ)ir_precision.o
+	@echo $(COTEXT) | tee -a make.log
+	@$(FC) $(OPTSC) $< -o $@ 1>> diagnostic_messages 2>> error_messages
+
+$(DOBJ)dcs.o : DCS.f90 \
+	$(DOBJ)ir_precision.o \
+	$(DOBJ)data_type_cavity.o \
+	$(DOBJ)data_type_conservative.o \
+	$(DOBJ)data_type_mesh.o
 	@echo $(COTEXT) | tee -a make.log
 	@$(FC) $(OPTSC) $< -o $@ 1>> diagnostic_messages 2>> error_messages
 #-----------------------------------------------------------------------------------------------------------------------------------
