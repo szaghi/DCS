@@ -38,7 +38,11 @@ The streamfunction equation is solved by means of Successive Over Relaxation (SO
 
 ![equation](http://www.texify.com/img/%5CLARGE%5C%21s_%7Bi%2Cj%7D%3D%5Cbeta%5Cfrac%7Bs_%7Bi%2B1%2Cj%7D%2Bs_%7Bi-1%2Cj%7D%2Bs_%7Bi%2Cj%2B1%7D%2Bs_%7Bi%2Cj-1%7D%2B%5CDelta%20h%5E2v_%7Bi%2Cj%7D%7D%7B4%7D%2B%5Cleft%281-%5Cbeta%5Cright%29s_%7Bi%2Cj%7D.gif)
 
-where _beta_ is the over-relaxation parameter.
+where _beta_ is the over-relaxation parameter. After the (iterative) value of the streamfunction has been computed by means of the above SOR approach, the vorticity is computed similarly:
+
+![equation](http://www.texify.com/img/%5CLARGE%5C%21v_%7Bi%2Cj%7D%3D%5Cbeta%5Cleft%5B%5Cfrac%7Bv_%7Bi%2B1%2Cj%7D%2Bs_%7Bi-1%2Cj%7D%2Bs_%7Bi%2Cj%2B1%7D%2Bs_%7Bi%2Cj-1%7D%7D%7B4%7D%2B%20Re%5Cfrac%7B%5Cleft%28s_%7Bi%2Cj%2B1%7D-s_%7Bi%2Cj-1%7D%5Cright%29%5Cleft%28v_%7Bi%2B1%2Cj%7D-v_%7Bi-1%2Cj%7D%5Cright%29-%20%5Cleft%28s_%7Bi%2B1%2Cj%7D-s_%7Bi-1%2Cj%7D%5Cright%29%5Cleft%28v_%7Bi%2Cj%2B1%7D-v_%7Bi%2Cj-1%7D%5Cright%29%7D%7B16%7D%5Cright%5D%2B%20%5Cleft%281-%5Cbeta%5Cright%29v_%7Bi%2Cj%7D.gif)
+
+where central differencing has been used also for first order partial derivative.
 
 ### Implementation Details
 
