@@ -34,6 +34,12 @@ where _Dh=Dx=Dy_ is the uniform space spacing. Re-ordering LHS it is obtained an
 
 ![equation](http://www.texify.com/img/%5CLARGE%5C%21s_%7Bi%2Cj%7D%3D%5Cfrac%7Bs_%7Bi%2B1%2Cj%7D%2Bs_%7Bi-1%2Cj%7D%2Bs_%7Bi%2Cj%2B1%7D%2Bs_%7Bi%2Cj-1%7D%2B%5CDelta%20h%5E2v_%7Bi%2Cj%7D%7D%7B4%7D.gif)
 
+The streamfunction equation is solved by means of Successive Over Relaxation (SOR) method to obtain the steady state solution:
+
+![equation](http://www.texify.com/img/%5CLARGE%5C%21s_%7Bi%2Cj%7D%3D%5Cbeta%5Cfrac%7Bs_%7Bi%2B1%2Cj%7D%2Bs_%7Bi-1%2Cj%7D%2Bs_%7Bi%2Cj%2B1%7D%2Bs_%7Bi%2Cj-1%7D%2B%5CDelta%20h%5E2v_%7Bi%2Cj%7D%7D%7B4%7D%2B%5Cleft%281-%5Cbeta%5Cright%29s_%7Bi%2Cj%7D.gif)
+
+where _beta_ is the over-relaxation parameter.
+
 ### Implementation Details
 
 DCS is written in pure Fortran 2003 standard, thus the only requirement is a compiler supporting modern Fortran standards. Presently, the GNU gfortran compiler and the Intel Fortran compiler are officially supported by DCS. DCS project contains a makefile in standard GNU Make able to compile DCS with both GNU gfortran and Intel Fortran compilers.
