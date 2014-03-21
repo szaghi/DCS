@@ -58,6 +58,7 @@ Firstly, DCS must be locally downloaded either by means of Zip archive provided 
 ```shell
 git clone https://github.com/szaghi/DCS
 ```
+#### Compiling DCS
 Secondly, DCS must be compiled. To compile DCS a suitable makefile is provided. This makefile has a rule for printing its own usage:
 ```shell
 make help
@@ -111,6 +112,7 @@ The options should be self-explanatory. For a standard, non-debug compilation ju
 
  Assembling DCS
 ```
+#### Running DCS
 After DCS has been compiled, just run it without arguments and a help message will be prompted:
 ```shell
  Error: no argument has been passed to command line
