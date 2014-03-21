@@ -50,6 +50,10 @@ contains
   !> @ingroup Data_Type_ConservativePublicProcedure
   !> @{
   !> @brief Subroutine for computing new (n+1) stream function.
+  !> The second order derivatives of the Laplacian operator of the stream function equation are approximated by means of second
+  !> order central differences and then the resulting finite difference equation is solved by means of a Successive Over
+  !> Relaxation (SOR) approach:
+  !> \f$s_{i,j}=\beta\frac{s_{i+1,j}+s_{i-1,j}+s_{i,j+1}+s_{i,j-1}+\Delta h^2v_{i,j}}{4}+\left(1-\beta\right)s_{i,j}\f$
   pure subroutine computestream(cons,beta,dh)
   !---------------------------------------------------------------------------------------------------------------------------------
   implicit none
@@ -76,6 +80,13 @@ contains
   endsubroutine computestream
 
   !> @brief Subroutine for computing new (n+1) vorticity.
+  !> The second order derivatives of the Laplacian operator and the first order ones of the RHS of the vorticity equation are
+  !> approximated by means of second order central differences and then the resulting finite difference equation is solved by means
+  !> of a Successive Over Relaxation (SOR) approach:
+  !> \f$v_{i,j}=\beta\left[\frac{v_{i+1,j}+s_{i-1,j}+s_{i,j+1}+s_{i,j-1}}{4}+
+  !> Re\frac{\left(s_{i,j+1}-s_{i,j-1}\right)\left(v_{i+1,j}-v_{i-1,j}\right)-
+  !> \left(s_{i+1,j}-s_{i-1,j}\right)\left(v_{i,j+1}-v_{i,j-1}\right)}{16}\right]+ \left(1-\beta\right)v_{i,j}\f$
+  !> @note For the implementation of the boundary conditions see
   pure subroutine computevorticity(cons,Re,beta,dh)
   !---------------------------------------------------------------------------------------------------------------------------------
   implicit none

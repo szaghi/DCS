@@ -10,13 +10,15 @@ Stefano Zaghi and Emilio Campana
 
 ## Goals
 
-DCS is a didactic code aimed at presenting a practical implementation of some simple numerical methods for solving 2D Navier-Stokes equations. It constitutes supplementary educational material of other scientific disclosure efforts.
+DCS is a didactic code aimed at presenting a practical implementation of some simple numerical methods for solving 2D incompressible Navier-Stokes equations. It constitutes supplementary educational material of other scientific disclosure efforts.
 
 ## Copyrights
 
 DCS is an open source project, it is distributed under the [GPL v3](http://www.gnu.org/licenses/gpl-3.0.html). Anyone is interest to use, to develop or to contribute to DCS is welcome.
 
 ## Documentation
+
+The presented approach is taken from [E. Erturk, T. C. Corke andC. Gökçöl](http://onlinelibrary.wiley.com/doi/10.1002/fld.953/abstract).
 
 Detailed documentation of the Application Program Interface (API) can be found on the [GitHub pages](http://szaghi.github.com/DCS/index.html) of the project. In what follows a brief guide is reported.
 
