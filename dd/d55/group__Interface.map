@@ -1,6 +1,10 @@
 <map id="Interfaces" name="Interfaces">
-<area shape="rect" id="node1" href="$d5/d65/group__Data__Type__MeshInterface.html" title="Type_Mesh definition. " alt="" coords="156,5,281,35"/>
-<area shape="rect" id="node2" href="$d1/d46/group__Data__Type__ConservativeInterface.html" title="Type_Conservative definition. " alt="" coords="133,59,304,88"/>
-<area shape="rect" id="node4" href="$dd/d4b/group__IR__PrecisionInterface.html" title="Portable kind&#45;parameters module. " alt="" coords="171,112,267,141"/>
-<area shape="rect" id="node5" href="$da/db3/group__Data__Type__CavityInterface.html" title="Type_Cavity definition. " alt="" coords="153,165,284,195"/>
+<area shape="rect" id="node1" href="$d5/d65/group__Data__Type__MeshInterface.html" title="Type_Mesh definition. " alt="" coords="163,5,298,32"/>
+<area shape="rect" id="node2" href="$d1/d46/group__Data__Type__ConservativeInterface.html" title="Type_Conservative definition. " alt="" coords="139,56,322,83"/>
+<area shape="rect" id="node3" href="$da/d55/group__Data__Type__FaceInterface.html" title="Type_Face definition. " alt="" coords="165,107,296,133"/>
+<area shape="rect" id="node5" href="$d8/d96/group__Lib__PDEInterface.html" title="Partial Differential Equations solving library. " alt="" coords="193,157,269,184"/>
+<area shape="rect" id="node6" href="$da/d4d/group__Data__Type__Cell__QuadInterface.html" title="Type_Cell_Quad definition. " alt="" coords="147,208,314,235"/>
+<area shape="rect" id="node7" href="$dd/d4b/group__IR__PrecisionInterface.html" title="Portable kind&#45;parameters module. " alt="" coords="179,259,282,285"/>
+<area shape="rect" id="node8" href="$da/db3/group__Data__Type__CavityInterface.html" title="Type_Cavity definition. " alt="" coords="161,309,300,336"/>
+<area shape="rect" id="node9" href="$d8/dd9/group__Data__Type__NodeInterface.html" title="Type_Node definition. " alt="" coords="163,360,298,387"/>
 </map>

@@ -1,3 +1,5 @@
 <map id="Global Variables and Parameters" name="Global Variables and Parameters">
-<area shape="rect" id="node2" href="$dc/d7d/group__IR__PrecisionGlobalVarPar.html" title="Portable kind&#45;parameters module. " alt="" coords="199,13,295,43"/>
+<area shape="rect" id="node1" href="$db/d7d/group__Data__Type__VectorGlobalVarPar.html" title="Module definition of Type_Vector. " alt="" coords="205,5,347,32"/>
+<area shape="rect" id="node3" href="$dc/d7d/group__IR__PrecisionGlobalVarPar.html" title="Portable kind&#45;parameters module. " alt="" coords="225,56,327,83"/>
+<area shape="rect" id="node4" href="$db/d84/group__Lib__PDEGlobalVarPar.html" title="Partial Differential Equations solving library. " alt="" coords="238,107,314,133"/>
 </map>

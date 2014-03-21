@@ -1,29 +1,15 @@
 var NAVTREE =
 [
   [ "DCS", "index.html", [
-    [ "Governing Equations", "d4/d75/Equations.html", [
-      [ "Introduction", "index.html#Introduction", null ],
-      [ "Copyrights", "index.html#Copyrights", null ],
-      [ "Source Code", "index.html#Source", null ],
-      [ "Conservation Laws", "d4/d75/Equations.html#conseq", [
-        [ "Non-Dimensional Form", "d4/d75/Equations.html#adim", null ]
-      ] ],
-      [ "Numerical Models", "d4/d75/Equations.html#NumericalModels", null ]
-    ] ],
-    [ "Compiling Instructions", "d9/d26/Compiling.html", [
-      [ "Compiling Instructions", "d9/d26/Compiling.html#CompInst", [
-        [ "Makefile", "d9/d26/Compiling.html#Makefile", null ],
-        [ "Makefile Options", "d9/d26/Compiling.html#Mopts", null ],
-        [ "Makefile Rules", "d9/d26/Compiling.html#Mrules", null ]
-      ] ]
-    ] ],
-    [ "Examples of usage", "d9/d61/Examples.html", null ],
+    [ "Mathematical and Numerical Models", "df/d67/Mathematical.html", null ],
+    [ "Compiling DCS", "d9/d26/Compiling.html", null ],
+    [ "Running DCS", "df/d09/Running.html", null ],
     [ "Todo List", "dd/da0/todo.html", null ],
     [ "API", "modules.html", "modules" ],
     [ "Data Types List", "annotated.html", "annotated" ],
     [ "Data Fields", "functions.html", [
-      [ "All", "functions.html", null ],
-      [ "Functions/Subroutines", "functions_func.html", null ],
+      [ "All", "functions.html", "functions_dup" ],
+      [ "Functions/Subroutines", "functions_func.html", "functions_func" ],
       [ "Variables", "functions_vars.html", null ]
     ] ],
     [ "Source Files", null, [
@@ -34,9 +20,15 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"annotated.html",
+"d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gabb7a3bf2a3fe1ab616d9d85ed67e9449",
+"d2/dc1/group__Data__Type__VectorDerivedType.html#a1c4bac629ab83f245b590180944130fd",
+"d2/dc1/group__Data__Type__VectorDerivedType.html#af889eb89e7f4b392a3a765b892bd8fea",
+"dc/d7d/group__IR__PrecisionGlobalVarPar.html#ga8f277fe9c3f12a7d8d5b19949981dbba"
 ];
 
+var SYNCONMSG = 'click to disable panel synchronisation';
+var SYNCOFFMSG = 'click to enable panel synchronisation';
 var SYNCONMSG = 'click to disable panel synchronisation';
 var SYNCOFFMSG = 'click to enable panel synchronisation';
 var navTreeSubIndices = new Array();
@@ -119,12 +111,12 @@ function createIndent(o,domNode,node,level)
   var level=-1;
   var n = node;
   while (n.parentNode) { level++; n=n.parentNode; }
-  var imgNode = document.createElement("img");
-  imgNode.style.paddingLeft=(16*level).toString()+'px';
-  imgNode.width  = 16;
-  imgNode.height = 22;
-  imgNode.border = 0;
   if (node.childrenData) {
+    var imgNode = document.createElement("img");
+    imgNode.style.paddingLeft=(16*level).toString()+'px';
+    imgNode.width  = 16;
+    imgNode.height = 22;
+    imgNode.border = 0;
     node.plus_img = imgNode;
     node.expandToggle = document.createElement("a");
     node.expandToggle.href = "javascript:void(0)";
@@ -141,8 +133,12 @@ function createIndent(o,domNode,node,level)
     domNode.appendChild(node.expandToggle);
     imgNode.src = node.relpath+"ftv2pnode.png";
   } else {
-    imgNode.src = node.relpath+"ftv2node.png";
-    domNode.appendChild(imgNode);
+    var span = document.createElement("span");
+    span.style.display = 'inline-block';
+    span.style.width   = 16*(level+1)+'px';
+    span.style.height  = '22px';
+    span.innerHTML = '&#160;';
+    domNode.appendChild(span);
   } 
 }
 
@@ -361,7 +357,7 @@ function showNode(o, node, index, hash)
       if (!node.childrenVisited) {
         getNode(o, node);
       }
-      $(node.getChildrenUL()).show();
+      $(node.getChildrenUL()).css({'display':'block'});
       if (node.isLast) {
         node.plus_img.src = node.relpath+"ftv2mlastnode.png";
       } else {
@@ -393,8 +389,22 @@ function showNode(o, node, index, hash)
   }
 }
 
+function removeToInsertLater(element) {
+  var parentNode = element.parentNode;
+  var nextSibling = element.nextSibling;
+  parentNode.removeChild(element);
+  return function() {
+    if (nextSibling) {
+      parentNode.insertBefore(element, nextSibling);
+    } else {
+      parentNode.appendChild(element);
+    }
+  };
+}
+
 function getNode(o, po)
 {
+  var insertFunction = removeToInsertLater(po.li);
   po.childrenVisited = true;
   var l = po.childrenData.length-1;
   for (var i in po.childrenData) {
@@ -402,6 +412,7 @@ function getNode(o, po)
     po.children[i] = newNode(o, po, nodeData[0], nodeData[1], nodeData[2],
       i==l);
   }
+  insertFunction();
 }
 
 function gotoNode(o,subIndex,root,hash,relpath)
@@ -505,7 +516,10 @@ function initNavTree(toroot,relpath)
     navSync.click(function(){ toggleSyncButton(relpath); });
   }
 
-  navTo(o,toroot,window.location.hash,relpath);
+  $(window).load(function(){
+    navTo(o,toroot,window.location.hash,relpath);
+    showRoot();
+  });
 
   $(window).bind('hashchange', function(){
      if (window.location.hash && window.location.hash.length>1){
@@ -528,7 +542,5 @@ function initNavTree(toroot,relpath)
        navTo(o,toroot,window.location.hash,relpath);
      }
   })
-
-  $(window).load(showRoot);
 }
 

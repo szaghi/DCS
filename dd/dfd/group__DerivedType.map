@@ -1,5 +1,9 @@
 <map id="Derived Types" name="Derived Types">
-<area shape="rect" id="node1" href="$dc/daf/group__Data__Type__ConservativeDerivedType.html" title="Type_Conservative definition. " alt="" coords="160,5,331,35"/>
-<area shape="rect" id="node2" href="$d5/d16/group__Data__Type__CavityDerivedType.html" title="Type_Cavity definition. " alt="" coords="180,59,311,88"/>
-<area shape="rect" id="node3" href="$d2/d92/group__Data__Type__MeshDerivedType.html" title="Type_Mesh definition. " alt="" coords="183,112,308,141"/>
+<area shape="rect" id="node1" href="$dc/daf/group__Data__Type__ConservativeDerivedType.html" title="Type_Conservative definition. " alt="" coords="169,5,351,32"/>
+<area shape="rect" id="node2" href="$d5/d16/group__Data__Type__CavityDerivedType.html" title="Type_Cavity definition. " alt="" coords="191,56,329,83"/>
+<area shape="rect" id="node3" href="$de/d7b/group__Data__Type__Cell__QuadDerivedType.html" title="Type_Cell_Quad definition. " alt="" coords="177,107,343,133"/>
+<area shape="rect" id="node4" href="$d8/d01/group__Data__Type__NodeDerivedType.html" title="Type_Node definition. " alt="" coords="193,157,327,184"/>
+<area shape="rect" id="node5" href="$d2/d92/group__Data__Type__MeshDerivedType.html" title="Type_Mesh definition. " alt="" coords="193,208,327,235"/>
+<area shape="rect" id="node6" href="$d8/d1e/group__Data__Type__FaceDerivedType.html" title="Type_Face definition. " alt="" coords="195,259,325,285"/>
+<area shape="rect" id="node8" href="$d2/dc1/group__Data__Type__VectorDerivedType.html" title="Module definition of Type_Vector. " alt="" coords="189,309,331,336"/>
 </map>

@@ -1,7 +1,12 @@
 <map id="Private Procedures" name="Private Procedures">
-<area shape="rect" id="node2" href="$d9/df5/group__DCSPrivateProcedure.html" title="Driven&#45;Cavity Simulator. " alt="" coords="247,5,297,35"/>
-<area shape="rect" id="node3" href="$dc/d40/group__Data__Type__ConservativePrivateProcedure.html" title="Type_Conservative definition. " alt="" coords="187,59,357,88"/>
-<area shape="rect" id="node4" href="$d1/de2/group__IR__PrecisionPrivateProcedure.html" title="Portable kind&#45;parameters module. " alt="" coords="224,112,320,141"/>
-<area shape="rect" id="node5" href="$dd/d74/group__Data__Type__CavityPrivateProcedure.html" title="Type_Cavity definition. " alt="" coords="207,165,337,195"/>
-<area shape="rect" id="node6" href="$dc/d5a/group__Data__Type__MeshPrivateProcedure.html" title="Type_Mesh definition. " alt="" coords="209,219,335,248"/>
+<area shape="rect" id="node2" href="$d9/df5/group__DCSPrivateProcedure.html" title="Driven&#45;Cavity Simulator. " alt="" coords="264,5,315,32"/>
+<area shape="rect" id="node3" href="$dc/d40/group__Data__Type__ConservativePrivateProcedure.html" title="Type_Conservative definition. " alt="" coords="198,56,381,83"/>
+<area shape="rect" id="node4" href="$d5/d37/group__Data__Type__FacePrivateProcedure.html" title="Type_Face definition. " alt="" coords="224,107,355,133"/>
+<area shape="rect" id="node5" href="$d1/de2/group__IR__PrecisionPrivateProcedure.html" title="Portable kind&#45;parameters module. " alt="" coords="238,157,341,184"/>
+<area shape="rect" id="node6" href="$dd/d74/group__Data__Type__CavityPrivateProcedure.html" title="Type_Cavity definition. " alt="" coords="220,208,359,235"/>
+<area shape="rect" id="node7" href="$db/df3/group__Data__Type__NodePrivateProcedure.html" title="Type_Node definition. " alt="" coords="222,259,357,285"/>
+<area shape="rect" id="node8" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html" title="Module definition of Type_Vector. " alt="" coords="219,309,360,336"/>
+<area shape="rect" id="node9" href="$da/dde/group__Lib__PDEPrivateProcedure.html" title="Partial Differential Equations solving library. " alt="" coords="251,360,327,387"/>
+<area shape="rect" id="node10" href="$d8/d9c/group__Data__Type__Cell__QuadPrivateProcedure.html" title="Type_Cell_Quad definition. " alt="" coords="206,411,373,437"/>
+<area shape="rect" id="node11" href="$dc/d5a/group__Data__Type__MeshPrivateProcedure.html" title="Type_Mesh definition. " alt="" coords="222,461,357,488"/>
 </map>

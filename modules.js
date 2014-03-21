@@ -1,5 +1,8 @@
 var modules =
 [
+    [ "Goals", "index.html#Goals", null ],
+    [ "Copyrights", "index.html#Copyrights", null ],
+    [ "Source Code", "index.html#Source", null ],
     [ "Programs", "db/db0/group__Program.html", "db/db0/group__Program" ],
     [ "Derived Types", "dd/dfd/group__DerivedType.html", "dd/dfd/group__DerivedType" ],
     [ "Global Variables and Parameters", "d7/dc3/group__GlobalVarPar.html", "d7/dc3/group__GlobalVarPar" ],
