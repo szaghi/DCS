@@ -44,6 +44,8 @@ where _beta_ is the over-relaxation parameter. After the (iterative) value of th
 
 where central differencing has been used also for first order partial derivative.
 
+The above SOR equation for _s_ and _v_ are coupled with suitable boundary conditions, see [T. Stortkuhl, C. Zenger and S. Zimmer](http://dx.doi.org/10.1108/EUM0000000004030). The iteration on each cell _(i,j)_ ends when the residuals become lower than a user-defined threshold value.
+
 ### Implementation Details
 
 DCS is written in pure Fortran 2003 standard, thus the only requirement is a compiler supporting modern Fortran standards. Presently, the GNU gfortran compiler and the Intel Fortran compiler are officially supported by DCS. DCS project contains a makefile in standard GNU Make able to compile DCS with both GNU gfortran and Intel Fortran compilers.
