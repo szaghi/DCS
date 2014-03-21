@@ -85,8 +85,9 @@ contains
   !> of a Successive Over Relaxation (SOR) approach:
   !> \f$v_{i,j}=\beta\left[\frac{v_{i+1,j}+s_{i-1,j}+s_{i,j+1}+s_{i,j-1}}{4}+
   !> Re\frac{\left(s_{i,j+1}-s_{i,j-1}\right)\left(v_{i+1,j}-v_{i-1,j}\right)-
-  !> \left(s_{i+1,j}-s_{i-1,j}\right)\left(v_{i,j+1}-v_{i,j-1}\right)}{16}\right]+ \left(1-\beta\right)v_{i,j}\f$
+  !> \left(s_{i+1,j}-s_{i-1,j}\right)\left(v_{i,j+1}-v_{i,j-1}\right)}{16}\right]+\left(1-\beta\right)v_{i,j}\f$
   !> @note For the implementation of the boundary conditions see
+  !> <a href="http://dx.doi.org/10.1108/EUM0000000004030">T. Stortkuhl, C. Zenger and S. Zimmer</a>.
   pure subroutine computevorticity(cons,Re,beta,dh)
   !---------------------------------------------------------------------------------------------------------------------------------
   implicit none

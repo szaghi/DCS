@@ -121,7 +121,7 @@ contains
   write(stdout,'(A)')' Optional parameters:'
   write(stdout,'(A)')' -Re Reynolds_number => default 500'
   write(stdout,'(A)')' -beta over_relaxation_parameter => default 0.6'
-  write(stdout,'(A)')' -rtol residual_tollerance => default 10^-4'
+  write(stdout,'(A)')' -rtol residual_tolerance => default 10^-4'
   write(stdout,'(A)')' -nout standard_output_update_frequency => default 1000 iterations'
   write(stdout,'(A)')' -oform output_file_format => "tec" for Tecplot output or "gnu" for gnuplot one, default "tec"'
   write(stdout,*)

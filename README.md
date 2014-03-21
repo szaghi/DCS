@@ -124,7 +124,7 @@ After DCS has been compiled, just run it without arguments and a help message wi
  Optional parameters:
  -Re Reynolds_number => default 500
  -beta over_relaxation_parameter => default 0.6
- -rtol residual_tollerance => default 10^-4
+ -rtol residual_tolerance => default 10^-4
  -nout standard_output_update_frequency => default 1000 iterations
  -oform output_file_format => "tec" for Tecplot output or "gnu" for gnuplot one, default "tec"
 
