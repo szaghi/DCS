@@ -1,0 +1,5 @@
+<map id="data_type_vector::type_vector::parallel" name="data_type_vector::type_vector::parallel">
+<area shape="rect" id="node2" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#a3d48344eafd2d23f56e5c8b71f125986" title="data_type_vector::type\l_vector::paral" alt="" coords="219,23,384,65"/>
+<area shape="rect" id="node3" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gaffbbc344ea9ac746bcc52a0b8e26ab05" title="Procedure for computign the component of vec1 orthogonal to vec2. " alt="" coords="433,5,639,32"/>
+<area shape="rect" id="node4" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga5e3704a896351d446f29cef83ebd4aea" title="Procedure for computing the component of vec1 parallel to vec2. " alt="" coords="444,56,628,83"/>
+</map>

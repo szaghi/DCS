@@ -1,0 +1,7 @@
+<map id="data_type_vector::face_normal3" name="data_type_vector::face_normal3">
+<area shape="rect" id="node2" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#a30a2ee6c0f26e810647a62150342927d" title="data_type_vector::type\l_vector::cross" alt="" coords="219,5,384,46"/>
+<area shape="rect" id="node3" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#a96c5e77507732fc5f6194f557c7e3531" title="data_type_vector::type\l_vector::normalize" alt="" coords="219,70,384,111"/>
+<area shape="rect" id="node4" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga78bbdff1c9caa784f7c4470c87a331e7" title="Subroutine for normalizing a vector. " alt="" coords="432,77,661,104"/>
+<area shape="rect" id="node5" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#af9e3d5d784aba7c116dc493e5ddccc5c" title="data_type_vector::type\l_vector::norml2" alt="" coords="709,70,875,111"/>
+<area shape="rect" id="node6" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga642814a15ef9d6acb4504925c8efb3cc" title="Function for computing the norm L2 of a vector. " alt="" coords="923,77,1133,104"/>
+</map>

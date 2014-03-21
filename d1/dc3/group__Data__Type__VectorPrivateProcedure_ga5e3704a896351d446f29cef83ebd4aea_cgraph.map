@@ -1,0 +1,12 @@
+<map id="data_type_vector::parallel" name="data_type_vector::parallel">
+<area shape="rect" id="node2" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#ab04867a7d852a81d55d23d606a220c81" title="data_type_vector::type\l_vector::dot" alt="" coords="237,5,403,46"/>
+<area shape="rect" id="node3" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#a96c5e77507732fc5f6194f557c7e3531" title="data_type_vector::type\l_vector::normalize" alt="" coords="237,70,403,111"/>
+<area shape="rect" id="node7" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#a3d48344eafd2d23f56e5c8b71f125986" title="data_type_vector::type\l_vector::paral" alt="" coords="237,135,403,177"/>
+<area shape="rect" id="node4" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga78bbdff1c9caa784f7c4470c87a331e7" title="Subroutine for normalizing a vector. " alt="" coords="451,77,680,104"/>
+<area shape="rect" id="node5" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#af9e3d5d784aba7c116dc493e5ddccc5c" title="data_type_vector::type\l_vector::norml2" alt="" coords="728,70,893,111"/>
+<area shape="rect" id="node6" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga642814a15ef9d6acb4504925c8efb3cc" title="Function for computing the norm L2 of a vector. " alt="" coords="941,77,1152,104"/>
+<area shape="rect" id="node8" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#ac52453e0e5ab24f726adef175d793875" title="data_type_vector::type\l_vector::operator" alt="" coords="483,135,648,177"/>
+<area shape="rect" id="node11" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#aeb7e134c2f75070a29569d6be9263195" title="data_type_vector::type\l_vector::parallel" alt="" coords="483,201,648,242"/>
+<area shape="rect" id="node9" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#a30a2ee6c0f26e810647a62150342927d" title="data_type_vector::type\l_vector::cross" alt="" coords="728,135,893,177"/>
+<area shape="rect" id="node10" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#a237328e2ac536945bb570df45f82ac70" title="data_type_vector::type\l_vector::crossproduct" alt="" coords="728,201,893,242"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="data_type_vector::orthogonal" name="data_type_vector::orthogonal">
+<area shape="rect" id="node2" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#aa4032eb161c7ade20ba049f7e00e3e07" title="data_type_vector::type\l_vector::ortho" alt="" coords="261,38,427,79"/>
+<area shape="rect" id="node7" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#a3d48344eafd2d23f56e5c8b71f125986" title="data_type_vector::type\l_vector::paral" alt="" coords="261,103,427,145"/>
+<area shape="rect" id="node3" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#ac52453e0e5ab24f726adef175d793875" title="data_type_vector::type\l_vector::operator" alt="" coords="475,70,640,111"/>
+<area shape="rect" id="node6" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#a62c23dd8f163096bad0a97a3574661ad" title="data_type_vector::type\l_vector::orthogonal" alt="" coords="475,5,640,46"/>
+<area shape="rect" id="node4" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#a30a2ee6c0f26e810647a62150342927d" title="data_type_vector::type\l_vector::cross" alt="" coords="688,38,853,79"/>
+<area shape="rect" id="node5" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#a237328e2ac536945bb570df45f82ac70" title="data_type_vector::type\l_vector::crossproduct" alt="" coords="688,103,853,145"/>
+<area shape="rect" id="node8" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#aeb7e134c2f75070a29569d6be9263195" title="data_type_vector::type\l_vector::parallel" alt="" coords="475,135,640,177"/>
+</map>

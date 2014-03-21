@@ -1,0 +1,63 @@
+<map id="data_type_vector::norml2_self" name="data_type_vector::norml2_self">
+<area shape="rect" id="node2" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#af9e3d5d784aba7c116dc493e5ddccc5c" title="data_type_vector::type\l_vector::norml2" alt="" coords="264,1566,429,1607"/>
+<area shape="rect" id="node3" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga4c6447c9e4c01ca9a5c2dd48a98c2737" title="Procedure returns .true. " alt="" coords="517,5,675,46"/>
+<area shape="rect" id="node4" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga857f93018205e455db1310734cfe59b0" title="Procedure returns .true. " alt="" coords="517,70,675,111"/>
+<area shape="rect" id="node5" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gaeb2eeca922f927dae82bdba22077b9ac" title="Procedure returns .true. " alt="" coords="517,135,675,177"/>
+<area shape="rect" id="node6" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gaec4f1315bce1534de85ecdd3e8130e4b" title="Procedure returns .true. " alt="" coords="517,201,675,242"/>
+<area shape="rect" id="node7" href="$db/daf/group__Data__Type__VectorPublicProcedure.html#gae0bb03dbf1c4b6e1b3ca85916e194e7e" title="Function for normalizing a vector. " alt="" coords="497,267,695,293"/>
+<area shape="rect" id="node8" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga78bbdff1c9caa784f7c4470c87a331e7" title="Subroutine for normalizing a vector. " alt="" coords="481,317,711,344"/>
+<area shape="rect" id="node17" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gadfc676d7ab4af9afa6857b58b5316bce" title="Procedure returns .true. " alt="" coords="988,361,1148,402"/>
+<area shape="rect" id="node18" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga683a635b37d865b7de831700ee215cbc" title="Procedure returns .true. " alt="" coords="988,426,1148,467"/>
+<area shape="rect" id="node19" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gabedbcd431229c5fc8563a557916ef2f3" title="Subroutine for obtaining a normalized copy of a vector. " alt="" coords="477,469,715,496"/>
+<area shape="rect" id="node21" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gaaadc8c2e61eed0b267c0dbeecee46a19" title="Procedure returns .true. " alt="" coords="513,521,679,562"/>
+<area shape="rect" id="node22" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga5661297d9dd9252887803bf9d3ce8e5d" title="Procedure returns .true. " alt="" coords="517,586,675,627"/>
+<area shape="rect" id="node23" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga3d6348c4ef963d3f8ca3841ce36b777d" title="Procedure returns .true. " alt="" coords="517,651,675,693"/>
+<area shape="rect" id="node24" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gaf04b933f2a17ab7910add0d6cc2e2c03" title="Procedure returns .true. " alt="" coords="516,717,676,758"/>
+<area shape="rect" id="node25" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gaaa2fc1cda1636e2fd15544212edd1245" title="Procedure returns .true. " alt="" coords="516,782,676,823"/>
+<area shape="rect" id="node26" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gab1ba7998e5a2df96dfe92ff635c92577" title="Procedure returns .true. " alt="" coords="516,847,676,889"/>
+<area shape="rect" id="node27" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gad826ded809c86e0bb9ce2c9262480f92" title="Procedure returns .true. " alt="" coords="516,913,676,954"/>
+<area shape="rect" id="node28" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga1d54b0cf2f6190f0cab66d7efb0af3fe" title="Procedure returns .true. " alt="" coords="516,978,676,1019"/>
+<area shape="rect" id="node29" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga4bf03fc459cb0525c8466c0acfc5bda4" title="Procedure returns .true. " alt="" coords="516,1043,676,1085"/>
+<area shape="rect" id="node30" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gabdd2bc313012962a31126d03c0bbb9ac" title="Procedure returns .true. " alt="" coords="516,1109,676,1150"/>
+<area shape="rect" id="node31" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga4438d1348dca5114bc6121a5cdd04ae4" title="Procedure returns .true. " alt="" coords="516,1174,676,1215"/>
+<area shape="rect" id="node32" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga2a49b5c6d2833f83526e2ce0dc69af9f" title="Procedure returns .true. " alt="" coords="516,1239,676,1281"/>
+<area shape="rect" id="node33" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gadd0a9067b1c30ef11aa336f2dd7dc49d" title="Procedure returns .true. " alt="" coords="516,1305,676,1346"/>
+<area shape="rect" id="node34" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga72410961ef15ea1caf7a56521900408a" title="Procedure returns .true. " alt="" coords="516,1370,676,1411"/>
+<area shape="rect" id="node35" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga7dbc374c2a7d8bad0f7ddfe34cd695d1" title="Procedure returns .true. " alt="" coords="516,1435,676,1477"/>
+<area shape="rect" id="node36" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga38056bfe79d038f3c9581e5b3c0940b6" title="Procedure returns .true. " alt="" coords="516,1501,676,1542"/>
+<area shape="rect" id="node37" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga52342cf1420a3fcacd2e45337d8cda08" title="Procedure returns .true. " alt="" coords="516,1566,676,1607"/>
+<area shape="rect" id="node38" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gabd61fd34be886ef02ff360bffdea6ea5" title="Procedure returns .true. " alt="" coords="516,1631,676,1673"/>
+<area shape="rect" id="node39" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga7268bb0f63f4adeaecc2e047152c8ef9" title="Procedure returns .true. " alt="" coords="516,1697,676,1738"/>
+<area shape="rect" id="node40" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga61c30b2aceaa7281f5951f3546dc6d45" title="Procedure returns .true. " alt="" coords="516,1762,676,1803"/>
+<area shape="rect" id="node41" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga8bd31bbc2ec5b337e9f587f6ce8be9f2" title="Procedure returns .true. " alt="" coords="516,1827,676,1869"/>
+<area shape="rect" id="node42" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gaa0ded02692906f986660c8541420e022" title="Procedure returns .true. " alt="" coords="516,1893,676,1934"/>
+<area shape="rect" id="node43" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga6bea6bf34c51c0614f7fa1619827004d" title="Procedure returns .true. " alt="" coords="516,1958,676,1999"/>
+<area shape="rect" id="node44" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gac92ae3e5c392ae9484f8dc187ac8a4b8" title="Procedure returns .true. " alt="" coords="516,2023,676,2065"/>
+<area shape="rect" id="node45" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gaadddc8fc526cdafdde8a8fd0f4b090c2" title="Procedure returns .true. " alt="" coords="516,2089,676,2130"/>
+<area shape="rect" id="node46" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga92c829d8e1d1d11654b05ab823f57b21" title="Procedure returns .true. " alt="" coords="516,2154,676,2195"/>
+<area shape="rect" id="node47" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gac33cef79e0c5d51488551e421f2d2d2a" title="Procedure returns .true. " alt="" coords="516,2219,676,2261"/>
+<area shape="rect" id="node48" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga1e7dfd27c0b0c98cade01ffc94ffeb55" title="Procedure returns .true. " alt="" coords="516,2285,676,2326"/>
+<area shape="rect" id="node49" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga11074b929187569b838dea553028b082" title="Procedure returns .true. " alt="" coords="516,2350,676,2391"/>
+<area shape="rect" id="node50" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gacc71f8101b171458c57870364a43d9b1" title="Procedure returns .true. " alt="" coords="516,2415,676,2457"/>
+<area shape="rect" id="node51" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga2fddc22f1dc9a7173bf36a809d94eaef" title="Procedure returns .true. " alt="" coords="516,2481,676,2522"/>
+<area shape="rect" id="node52" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga3d9896c49079cde403f5918c1e8a2c36" title="Procedure returns .true. " alt="" coords="516,2546,676,2587"/>
+<area shape="rect" id="node53" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gac2bdf4066dad09f6d5807b4437e116ab" title="Procedure returns .true. " alt="" coords="516,2611,676,2653"/>
+<area shape="rect" id="node54" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gae63afec990b8da3cef9afaece662572b" title="Procedure returns .true. " alt="" coords="516,2677,676,2718"/>
+<area shape="rect" id="node55" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga2688896d1bf09e184be8060489367cf5" title="Procedure returns .true. " alt="" coords="516,2742,676,2783"/>
+<area shape="rect" id="node56" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga991550a93d878f2bc2c4cc5c79dfcd21" title="Procedure returns .true. " alt="" coords="516,2807,676,2849"/>
+<area shape="rect" id="node57" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga5f72255b9e7e1a7da6599e4c266cf912" title="Procedure returns .true. " alt="" coords="516,2873,676,2914"/>
+<area shape="rect" id="node58" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga919e601332bb1f0a4181f18a692e04a2" title="Procedure returns .true. " alt="" coords="516,2938,676,2979"/>
+<area shape="rect" id="node59" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga25526a6231b69788fbdac8546a046e1e" title="Procedure returns .true. " alt="" coords="516,3003,676,3045"/>
+<area shape="rect" id="node60" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gaac367466d9e79cd37f83099616faa5b0" title="Procedure returns .true. " alt="" coords="516,3069,676,3110"/>
+<area shape="rect" id="node61" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga0742d3375f1e30ec75fd2e28bb8a86d4" title="Procedure returns .true. " alt="" coords="516,3134,676,3175"/>
+<area shape="rect" id="node62" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga3b5b77e3cda2c0c704875f6a18595481" title="Procedure returns .true. " alt="" coords="516,3199,676,3241"/>
+<area shape="rect" id="node9" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#a96c5e77507732fc5f6194f557c7e3531" title="data_type_vector::type\l_vector::normalize" alt="" coords="763,263,928,305"/>
+<area shape="rect" id="node10" href="$db/daf/group__Data__Type__VectorPublicProcedure.html#ga2992bb0567756851a72c81ea54a02e0c" title="Function for calculating the normal of the face defined by the 3 points vector pt1, pt2 and pt3. " alt="" coords="985,99,1151,141"/>
+<area shape="rect" id="node11" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga5955bd2f8c85f3bf2f49c8114336a20b" title="Function for calculating the normal of the face defined by the 3 points vector pt1, pt2 and pt3. " alt="" coords="985,165,1151,206"/>
+<area shape="rect" id="node13" href="$db/daf/group__Data__Type__VectorPublicProcedure.html#ga1689ddf7f65403713eebe84eec6e6f9d" title="Function for calculating the normal of the face defined by 4 points vector pt1, pt2, pt3 and pt4. " alt="" coords="985,230,1151,271"/>
+<area shape="rect" id="node14" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gaccc7b7075d142177ad1920e72bc266f0" title="Function for calculating the normal of the face defined by 4 points vector pt1, pt2, pt3 and pt4. " alt="" coords="985,295,1151,337"/>
+<area shape="rect" id="node16" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga5e3704a896351d446f29cef83ebd4aea" title="Procedure for computing the component of vec1 parallel to vec2. " alt="" coords="976,48,1160,75"/>
+<area shape="rect" id="node12" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#a9163bafb6f8bd53081cc45da8ed8b87c" title="data_type_vector::type\l_vector::face_normal3" alt="" coords="1208,165,1373,206"/>
+<area shape="rect" id="node15" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#a63ba1e2c6758da05f308b9eba813dacc" title="data_type_vector::type\l_vector::face_normal4" alt="" coords="1208,295,1373,337"/>
+<area shape="rect" id="node20" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#a8216fe566ea05f986ff1c14d0a8e0fb9" title="data_type_vector::type\l_vector::normalized" alt="" coords="763,470,928,511"/>
+</map>

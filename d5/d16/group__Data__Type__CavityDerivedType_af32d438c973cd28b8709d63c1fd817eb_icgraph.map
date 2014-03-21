@@ -1,0 +1,6 @@
+<map id="data_type_cavity::type_cavity::initialize" name="data_type_cavity::type_cavity::initialize">
+<area shape="rect" id="node2" href="$de/d7b/group__Data__Type__Cell__QuadDerivedType.html#a7d3ad300f951c9770b2e9a910c23f156" title="data_type_cell_quad\l::type_cell_quad::initialize" alt="" coords="216,5,395,46"/>
+<area shape="rect" id="node3" href="$d8/d01/group__Data__Type__NodeDerivedType.html#af8ceec900ad3f2cebcabbf77e1d9afbe" title="data_type_node::type\l_node::initialize" alt="" coords="226,70,385,111"/>
+<area shape="rect" id="node4" href="$d2/d92/group__Data__Type__MeshDerivedType.html#a01a0c28def275e27c1a7dbd45c638716" title="data_type_mesh::type\l_mesh::initialize" alt="" coords="225,135,385,177"/>
+<area shape="rect" id="node5" href="$d8/d1e/group__Data__Type__FaceDerivedType.html#a083174b886794dbf8d578c2e97401038" title="data_type_face::type\l_face::initialize" alt="" coords="229,201,382,242"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="data_type_vector::type_vector::dot" name="data_type_vector::type_vector::dot">
+<area shape="rect" id="node2" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gaddc342e27726d343b4a3a74560c36a53" title="Procedure for computing the scalar (dot) product of 2 vectors. " alt="" coords="219,5,424,32"/>
+<area shape="rect" id="node3" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#ac52453e0e5ab24f726adef175d793875" title="data_type_vector::type\l_vector::operator" alt="" coords="239,57,404,98"/>
+<area shape="rect" id="node4" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga5e3704a896351d446f29cef83ebd4aea" title="Procedure for computing the component of vec1 parallel to vec2. " alt="" coords="229,123,413,149"/>
+</map>

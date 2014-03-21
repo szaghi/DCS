@@ -1,0 +1,11 @@
+<map id="data_type_vector::type_vector::normalize" name="data_type_vector::type_vector::normalize">
+<area shape="rect" id="node2" href="$db/daf/group__Data__Type__VectorPublicProcedure.html#ga2992bb0567756851a72c81ea54a02e0c" title="Function for calculating the normal of the face defined by the 3 points vector pt1, pt2 and pt3. " alt="" coords="228,5,393,46"/>
+<area shape="rect" id="node3" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga5955bd2f8c85f3bf2f49c8114336a20b" title="Function for calculating the normal of the face defined by the 3 points vector pt1, pt2 and pt3. " alt="" coords="228,70,393,111"/>
+<area shape="rect" id="node5" href="$db/daf/group__Data__Type__VectorPublicProcedure.html#ga1689ddf7f65403713eebe84eec6e6f9d" title="Function for calculating the normal of the face defined by 4 points vector pt1, pt2, pt3 and pt4. " alt="" coords="228,135,393,177"/>
+<area shape="rect" id="node6" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gaccc7b7075d142177ad1920e72bc266f0" title="Function for calculating the normal of the face defined by 4 points vector pt1, pt2, pt3 and pt4. " alt="" coords="228,201,393,242"/>
+<area shape="rect" id="node8" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga5e3704a896351d446f29cef83ebd4aea" title="Procedure for computing the component of vec1 parallel to vec2. " alt="" coords="219,267,403,293"/>
+<area shape="rect" id="node9" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#gadfc676d7ab4af9afa6857b58b5316bce" title="Procedure returns .true. " alt="" coords="231,318,391,359"/>
+<area shape="rect" id="node10" href="$d1/dc3/group__Data__Type__VectorPrivateProcedure.html#ga683a635b37d865b7de831700ee215cbc" title="Procedure returns .true. " alt="" coords="231,383,391,425"/>
+<area shape="rect" id="node4" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#a9163bafb6f8bd53081cc45da8ed8b87c" title="data_type_vector::type\l_vector::face_normal3" alt="" coords="451,70,616,111"/>
+<area shape="rect" id="node7" href="$d2/dc1/group__Data__Type__VectorDerivedType.html#a63ba1e2c6758da05f308b9eba813dacc" title="data_type_vector::type\l_vector::face_normal4" alt="" coords="451,201,616,242"/>
+</map>
