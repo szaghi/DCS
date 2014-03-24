@@ -14,7 +14,7 @@ DCS is a didactic code aimed at presenting a practical implementation of some si
 
 ## Copyrights
 
-DCS is an open source project, it is distributed under the [GPL v3](http://www.gnu.org/licenses/gpl-3.0.html). Anyone is interest to use, to develop or to contribute to DCS is welcome.
+DCS is an open source project, it is distributed under the [GPL v3](http://www.gnu.org/licenses/gpl-3.0.html). Anyone is interest to use, to develop or to contribute to DCS is welcome. Take a look at the [contributing guidelines](CONTRIBUTING.md) for starting to contribute to the project.
 
 ## Documentation
 
